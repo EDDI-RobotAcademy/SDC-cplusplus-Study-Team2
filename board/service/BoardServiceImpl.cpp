@@ -11,15 +11,11 @@ std::vector<Board> BoardServiceImpl::list()
 {
     std::cout << "BoardService: 리스트 출력!" << std::endl;
 
-    boardRepository->findAll();
-
-    return std::vector<Board>();
+    return boardRepository->findAll();
 }
 
 Board BoardServiceImpl::read(int uid) {
     std::cout << "BoardService: 게시물 읽기!" << std::endl;
-
-    //;
 
     return boardRepository->findPost(uid);
 }

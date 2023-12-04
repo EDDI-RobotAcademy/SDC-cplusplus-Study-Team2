@@ -26,6 +26,7 @@ public:
           const std::string& reg_date, const std::string& upd_date);
 
     void printBoardInfo() const;
+    int getBoardUID();
 };
 
 

@@ -31,3 +31,7 @@ void Board::printBoardInfo() const {
         << ", Created At: " << std::chrono::system_clock::to_time_t(created_at)
         << ", Updated At: " << std::chrono::system_clock::to_time_t(updated_at) << std::endl;
 }
+
+int Board::getBoardUID() {
+    return id;
+}

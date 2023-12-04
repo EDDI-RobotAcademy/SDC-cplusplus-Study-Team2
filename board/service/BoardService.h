@@ -6,7 +6,7 @@
 #define CLASS_TEST_BOARDSERVICE_H
 
 #include <vector>
-#include "response/BoardResponse.h"
+#include "response/BoardResponseList.h"
 
 class BoardService {
 public:
