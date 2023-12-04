@@ -18,9 +18,9 @@ private:
 
 public:
     BoardController(std::shared_ptr<BoardService> boardService);
-    //explicit BoardController(BoardService* service) : boardService(service) { }
 
-    std::vector<BoardResponse> boardList();
+    std::vector<Board> boardList();
+    Board boardRead(int);
 };
 
 

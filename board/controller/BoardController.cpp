@@ -10,11 +10,19 @@
                                 // shared_ptr: sharing 되고 있는 포인터
 BoardController::BoardController(std::shared_ptr<BoardService> boardService) : boardService(boardService) { }
 
-std::vector<BoardResponse> BoardController::boardList()
+std::vector<Board> BoardController::boardList()
 {
     std::cout << "BoardController: 게시물 리스트 출력!" << std::endl;
 
-    boardService->list();
+    //boardService->list();
 
-    return std::vector<BoardResponse>();
+    return boardService->list();
 }
+
+Board BoardController::boardRead(int uid) {
+
+    std::cout << "BoardController: 게시물 출력!" << std::endl;
+
+    return boardService->read(uid);
+}
+

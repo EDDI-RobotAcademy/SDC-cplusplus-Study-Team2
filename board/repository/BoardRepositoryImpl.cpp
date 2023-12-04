@@ -63,3 +63,9 @@ std::vector<Board> BoardRepositoryImpl::findAll()
 
     return boardList;
 }
+
+Board BoardRepositoryImpl::findPost(int uid) {
+
+
+    return Board(0, "","","");
+}

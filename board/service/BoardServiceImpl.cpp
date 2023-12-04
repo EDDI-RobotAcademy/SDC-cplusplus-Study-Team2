@@ -7,11 +7,19 @@
 
 BoardServiceImpl::BoardServiceImpl(std::shared_ptr<BoardRepository> boardRepository) : boardRepository(boardRepository) { }
 
-std::vector<BoardResponse> BoardServiceImpl::list()
+std::vector<Board> BoardServiceImpl::list()
 {
     std::cout << "BoardService: 리스트 출력!" << std::endl;
 
     boardRepository->findAll();
 
-    return std::vector<BoardResponse>();
+    return std::vector<Board>();
+}
+
+Board BoardServiceImpl::read(int uid) {
+    std::cout << "BoardService: 게시물 읽기!" << std::endl;
+
+    //;
+
+    return boardRepository->findPost(uid);
 }
