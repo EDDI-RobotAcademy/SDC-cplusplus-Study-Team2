@@ -26,7 +26,7 @@ bool DbProcess::insertData() {
     return (mysql_query(conn, insertQuery.c_str()) == 0);
 }
 
-bool DbProcess::updateData(int boardId, const std::string& newTitle, const std::string& newContent) {
+bool DbProcess::updateData(unsigned int boardId, const std::string& newTitle, const std::string& newContent) {
     std::string updateQuery = "UPDATE board SET title = '" + newTitle +
                               "', content = '" + newContent +
                               "' WHERE board_id = " + std::to_string(boardId);
@@ -34,7 +34,7 @@ bool DbProcess::updateData(int boardId, const std::string& newTitle, const std::
     return (mysql_query(conn, updateQuery.c_str()) == 0);
 }
 
-bool DbProcess::deleteData(int boardId) {
+bool DbProcess::deleteData(unsigned int boardId) {
     std::string deleteQuery = "DELETE FROM board WHERE board_id = " + std::to_string(boardId);
 
     return (mysql_query(conn, deleteQuery.c_str()) == 0);
@@ -63,7 +63,7 @@ void DbProcess::selectData() {
     }
 }
 
-void DbProcess::readData(int boardId) {
+void DbProcess::readData(unsigned int boardId) {
     std::string readQuery = "SELECT * FROM board WHERE board_id = " + std::to_string(boardId);
     if (mysql_query(conn, readQuery.c_str()) == 0) {
         MYSQL_RES* result = mysql_store_result(conn);

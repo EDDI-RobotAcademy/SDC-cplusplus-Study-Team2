@@ -4,6 +4,7 @@
 
 #include "BoardRepositoryImpl.h"
 #include "../../mysql/DbProcess.h"
+#include "../manager/BoardManager.h"
 
 std::vector<Board> fetchResults(MYSQL* conn) {
     std::vector<Board> boardList;
@@ -20,12 +21,12 @@ std::vector<Board> fetchResults(MYSQL* conn) {
         MYSQL_ROW row;
         while ((row = mysql_fetch_row(result)) != nullptr) {
             Board board(
-                    std::stoi(row[0]),        // board_id
-                    row[3],                   // title
-                    row[5],                   // writer
-                    row[1],                   // content
-                    row[2] ? row[2] : "NULL", // reg_date
-                    row[4] ? row[4] : "NULL"  // upd_date
+                    std::stoi(row[0]),                        // board_id
+                    row[3],                                     // title
+                    (unsigned int)std::stoul(row[5]),     // writer
+                    row[1],                                 // content
+                    row[2] ? row[2] : "NULL",               // reg_date
+                    row[4] ? row[4] : "NULL"                // upd_date
             );
             // pushback : 동적배열에 저장하는 명령어
             boardList.push_back(board);
@@ -65,7 +66,16 @@ std::vector<Board> BoardRepositoryImpl::findAll()
 }
 
 Board BoardRepositoryImpl::findPost(int uid) {
+    int boardCount = (int)BoardManager::getBoardList().size();
+    for(int i = 0; i < boardCount; i++){
+        if(uid == BoardManager::getBoardList()[i].getBoardUID()){
+            return BoardManager::getBoardList()[i];
+        }
+    }
 
+    std::cout << "찾을 수 없음!" << std::endl;
+}
 
-    return Board(0, "","","");
+void BoardRepositoryImpl::writePost(Board _request) {
+
 }

@@ -13,13 +13,21 @@
 
 class BoardManager {
 private:
-    std::shared_ptr<BoardController> boardController;
-    std::vector<Board> boardList;
-    unsigned int boardCount;
+    BoardManager() {}
+    BoardManager(const BoardManager& ref) {}
+    BoardManager& operator=(const BoardManager& ref) {}
+    ~BoardManager() {}
+    static std::shared_ptr<BoardController> boardController;
+    static std::vector<Board> boardList;
+    static unsigned int nextUid;
+    static void printBoardList();
 public:
-    BoardManager(std::shared_ptr<BoardController> boardController);
-    void startBoard();
-    void printBoardList();
+    static BoardManager& getInstance(std::shared_ptr<BoardController> _boardController);
+    static void startBoard();
+    static unsigned int getNextUid();
+    static std::vector<Board> getBoardList();
+
+
 };
 
 

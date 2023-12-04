@@ -5,17 +5,20 @@
 #include <iostream>
 #include "BoardManager.h"
 
-BoardManager::BoardManager(std::shared_ptr<BoardController> boardController) : boardController(boardController) {}
-
+BoardManager &BoardManager::getInstance(std::shared_ptr<BoardController> _boardController) {
+    static BoardManager boardManager;
+    boardManager.boardController = _boardController;
+    return boardManager;
+}
 // 추후 UI랑 위치를 바꾸는게 좋아보임
 void BoardManager::startBoard() {
 
     std::cout << "게시판 시작!" << std::endl;
 
     boardList = boardController->boardList();
-    boardCount = boardList.size();
+    nextUid = boardList[boardList.size()-1].getBoardUID()+1;
 
-    printBoardList();
+
 }
 
 void BoardManager::printBoardList() {
@@ -25,3 +28,13 @@ void BoardManager::printBoardList() {
         boardList[i].printBoardInfo();
     }
 }
+
+unsigned int BoardManager::getNextUid(){
+    return nextUid;
+}
+
+std::vector<Board> BoardManager::getBoardList() {
+    return boardList;
+}
+
+

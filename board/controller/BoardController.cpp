@@ -26,3 +26,9 @@ Board BoardController::boardRead(int uid) {
     return boardService->read(uid);
 }
 
+void BoardController::boardWrite(BoardRequestFormWrite _request) {
+
+    std::cout << "BoardController: 게시물 작성!" << std::endl;
+    boardService->write(_request);
+}
+

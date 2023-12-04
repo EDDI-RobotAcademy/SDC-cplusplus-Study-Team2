@@ -19,3 +19,16 @@ Board BoardServiceImpl::read(int uid) {
 
     return boardRepository->findPost(uid);
 }
+
+void BoardServiceImpl::write(BoardRequestFormWrite _request) {
+    std::cout << "BoardService: 게시물 쓰기!" << std::endl;
+    boardRepository->writePost(_request.requestToBoardForDB());
+}
+
+void BoardServiceImpl::edit() {
+    std::cout << "BoardService: 게시물 수정!" << std::endl;
+}
+
+void BoardServiceImpl::remove() {
+    std::cout << "BoardService: 게시물 삭제!" << std::endl;
+}

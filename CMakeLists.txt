@@ -27,6 +27,9 @@ add_executable(class_test main.cpp
         board/service/response/BoardResponseList.h
         board/service/response/BoardResponseRead.cpp
         board/service/response/BoardResponseRead.h
+        board/service/request/BoardRequestFormWrite.cpp
+        board/service/request/BoardRequestFormWrite.h
+        utility/Singleton.h
 )
 
 target_include_directories(class_test PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})

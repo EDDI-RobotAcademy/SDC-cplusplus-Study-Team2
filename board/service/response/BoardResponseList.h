@@ -9,10 +9,12 @@
 #include <string>
 
 class BoardResponseList {
-public:
     unsigned int board_uid;
     std::string title;
     std::string content;
+public:
+
+    ~BoardResponseList();
 
 };
 

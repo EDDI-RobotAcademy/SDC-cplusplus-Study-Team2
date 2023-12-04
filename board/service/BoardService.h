@@ -7,6 +7,8 @@
 
 #include <vector>
 #include "response/BoardResponseList.h"
+#include "../entity/Board.h"
+#include "request/BoardRequestFormWrite.h"
 
 class BoardService {
 public:
@@ -15,9 +17,9 @@ public:
     virtual ~BoardService() = default;
     virtual std::vector<Board> list() = 0;
     virtual Board read(int) = 0;
-//    virtual std::vector<BoardResponse> write() = 0;
-//    virtual std::vector<BoardResponse> edit() = 0;
-//    virtual void remove() = 0;
+    virtual void write(BoardRequestFormWrite) = 0;
+    virtual void edit() = 0;
+    virtual void remove() = 0;
 };
 
 #endif //CLASS_TEST_BOARDSERVICE_H
