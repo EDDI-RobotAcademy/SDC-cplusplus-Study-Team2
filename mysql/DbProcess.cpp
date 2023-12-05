@@ -20,8 +20,9 @@ bool DbProcess::connect() {
 }
 
 bool DbProcess::insertData() {
+
     std::string insertQuery = "INSERT INTO abc (content, title, writer, reg_date, upd_date) VALUES \
-                               ('테스트 내용', '테스트 제목', '테스트 작성자', now(6), now(6))";
+                               ('abc', '테스트 제목', '테스트 작성자', now(6), now(6))";
 
     return (mysql_query(conn, insertQuery.c_str()) == 0);
 }

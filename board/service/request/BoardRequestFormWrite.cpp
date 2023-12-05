@@ -6,6 +6,10 @@
 #include "BoardRequestFormWrite.h"
 
 #include "../../manager/BoardManager.h"
+#include "../BoardServiceImpl.h"
+#include "../../repository/BoardRepositoryImpl.h"
+
+
 
 BoardRequestFormWrite::BoardRequestFormWrite(unsigned int _accountUid, std::string _title, std::string _content) :
             accountUid(_accountUid), title(_title), content(_content) {}
@@ -16,7 +20,7 @@ BoardRequestFormWrite::~BoardRequestFormWrite() {
 }
 
 Board BoardRequestFormWrite::requestToBoardForDB() {
-    unsigned int boardUid = BoardManager::getNextUid();
+    unsigned int boardUid = boardManager.getNextUid();
     Board request(boardUid, title, accountUid, content);
     return request;
 }

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.26)
 project(class_test)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -29,7 +29,6 @@ add_executable(class_test main.cpp
         board/service/response/BoardResponseRead.h
         board/service/request/BoardRequestFormWrite.cpp
         board/service/request/BoardRequestFormWrite.h
-        utility/Singleton.h
 )
 
 target_include_directories(class_test PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})

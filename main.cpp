@@ -1,10 +1,12 @@
 #include <iostream>
 #include <memory>
 #include "board/controller/BoardController.h"
+#include "board/manager/BoardManager.h"
 #include "board/service/BoardServiceImpl.h"
 #include "board/repository/BoardRepository.h"
 #include "board/repository/BoardRepositoryImpl.h"
-#include "board/manager/BoardManager.h"
+
+
 
 
 int main() {
@@ -17,9 +19,10 @@ int main() {
     auto boardRepository = std::make_shared<BoardRepositoryImpl>();
     auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
     auto boardController = std::make_shared<BoardController>(boardService);
-    BoardManager::getInstance(boardController);
+    boardManager = BoardManager(boardController);
 
-    BoardManager::startBoard();
+    boardManager.startBoard();
+
 
 
 
