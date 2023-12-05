@@ -21,14 +21,18 @@ add_executable(class_test main.cpp
         mysql/DbProcess.h
         board/repository/BoardRepositoryImpl.cpp
         board/repository/BoardRepositoryImpl.h
-        board/manager/BoardManager.cpp
-        board/manager/BoardManager.h
+        board/entity/manager/BoardManager.cpp
+        board/entity/manager/BoardManager.h
         board/service/response/BoardResponseList.cpp
         board/service/response/BoardResponseList.h
         board/service/response/BoardResponseRead.cpp
         board/service/response/BoardResponseRead.h
         board/service/request/BoardRequestFormWrite.cpp
         board/service/request/BoardRequestFormWrite.h
+        board/adapter/BoardAdapter.cpp
+        board/adapter/BoardAdapter.h
+        board/adapter/request/RequestAccountUidToAccountNameForm.cpp
+        board/adapter/request/RequestAccountUidToAccountNameForm.h
 )
 
 target_include_directories(class_test PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})

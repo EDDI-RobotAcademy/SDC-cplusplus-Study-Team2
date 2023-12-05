@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory>
 #include "board/controller/BoardController.h"
-#include "board/manager/BoardManager.h"
+#include "board/entity/manager/BoardManager.h"
 #include "board/service/BoardServiceImpl.h"
 #include "board/repository/BoardRepository.h"
 #include "board/repository/BoardRepositoryImpl.h"
