@@ -12,8 +12,6 @@ add_executable(class_test main.cpp
         board/controller/BoardController.cpp
         board/controller/BoardController.h
         board/service/BoardService.h
-        board/service/response/BoardResponse.cpp
-        board/service/response/BoardResponse.h
         board/service/BoardServiceImpl.cpp
         board/service/BoardServiceImpl.h
         board/entity/Board.cpp
@@ -23,6 +21,15 @@ add_executable(class_test main.cpp
         mysql/DbProcess.h
         board/repository/BoardRepositoryImpl.cpp
         board/repository/BoardRepositoryImpl.h
+        board/manager/BoardManager.cpp
+        board/manager/BoardManager.h
+        board/service/response/BoardResponseList.cpp
+        board/service/response/BoardResponseList.h
+        board/service/response/BoardResponseRead.cpp
+        board/service/response/BoardResponseRead.h
+        board/service/request/BoardRequestFormWrite.cpp
+        board/service/request/BoardRequestFormWrite.h
+        utility/Singleton.h
 )
 
 target_include_directories(class_test PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})

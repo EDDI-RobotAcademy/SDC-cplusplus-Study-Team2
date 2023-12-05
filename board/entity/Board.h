@@ -12,20 +12,21 @@
 
 class Board {
 private:
-    int id;
+    unsigned int id;
     std::string title;
-    std::string writer;
+    unsigned int writer;
     std::string content;
 
     std::chrono::system_clock::time_point created_at;
     std::chrono::system_clock::time_point updated_at;
 
 public:
-    Board(int id, const std::string& title, const std::string& writer, const std::string& content);
-    Board(int id, const std::string& title, const std::string& writer, const std::string& content,
+    Board(unsigned int id, const std::string& title, const unsigned int& writer, const std::string& content);
+    Board(unsigned int id, const std::string& title, const unsigned int& writer, const std::string& content,
           const std::string& reg_date, const std::string& upd_date);
 
     void printBoardInfo() const;
+    unsigned int getBoardUID();
 };
 
 

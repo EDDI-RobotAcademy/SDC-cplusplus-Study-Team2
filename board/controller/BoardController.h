@@ -10,6 +10,8 @@
 #include <vector>
 
 #include "../service/BoardService.h"
+#include "../entity/Board.h"
+#include "../service/request/BoardRequestFormWrite.h"
 
 class BoardController {
 private:
@@ -18,9 +20,10 @@ private:
 
 public:
     BoardController(std::shared_ptr<BoardService> boardService);
-    //explicit BoardController(BoardService* service) : boardService(service) { }
 
-    std::vector<BoardResponse> boardList();
+    std::vector<Board> boardList();
+    Board boardRead(int);
+    void boardWrite(BoardRequestFormWrite);
 };
 
 
