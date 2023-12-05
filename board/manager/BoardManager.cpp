@@ -5,11 +5,10 @@
 #include <iostream>
 #include "BoardManager.h"
 
-BoardManager &BoardManager::getInstance(std::shared_ptr<BoardController> _boardController) {
-    static BoardManager boardManager;
-    boardManager.boardController = _boardController;
-    return boardManager;
-}
+
+
+BoardManager::BoardManager(std::shared_ptr<BoardController> _boardController) : boardController(_boardController){}
+
 // 추후 UI랑 위치를 바꾸는게 좋아보임
 void BoardManager::startBoard() {
 
@@ -36,5 +35,4 @@ unsigned int BoardManager::getNextUid(){
 std::vector<Board> BoardManager::getBoardList() {
     return boardList;
 }
-
 
