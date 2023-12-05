@@ -8,8 +8,8 @@
 
 #include <memory>
 
-#include "../controller/BoardController.h"
-#include "../entity/Board.h"
+#include "../../controller/BoardController.h"
+#include "../Board.h"
 
 
 
