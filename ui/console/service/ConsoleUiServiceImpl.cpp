@@ -34,25 +34,25 @@ Board *ConsoleUiServiceImpl::creatPost() {
     return newPost; // entity 로 접근
 }
 
-/*ConsoleUiServiceImpl::postExit () {
+void ConsoleUiServiceImpl::postExit () {
     std::cout << "exitPost 함수 호출 확인" << std::endl;
 }
 
-ConsoleUiServiceImpl::postList () {
+void ConsoleUiServiceImpl::postList () {
     std::cout << "postList 함수 호출 확인" << std::endl;
 }
 
-ConsoleUiServiceImpl::postModify () {
+void ConsoleUiServiceImpl::postModify () {
     std::cout << "postModify 함수 호출 확인" << std::endl;
 }
 
-ConsoleUiServiceImpl::postRead () {
+void ConsoleUiServiceImpl::postRead () {
     std::cout << "postRead 함수 호출 확인" << std::endl;
 }
 
-ConsoleUiServiceImpl::postRemove () {
+void ConsoleUiServiceImpl::postRemove () {
     std::cout << "postRemove 함수 호출 확인" << std::endl;
-}*/
+}
 
 ConsoleUiServiceImpl::~ConsoleUiServiceImpl() { }
 

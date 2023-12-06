@@ -15,7 +15,11 @@ class ConsoleUiServiceImpl : public ConsoleUiService {
 public:
     ConsoleUiServiceImpl();
     Board *creatPost();
-    //void postExit ();
+    void postExit ();
+    void postList ();
+    void postModify ();
+    void postRead ();
+    void postRemove ();
 
     ~ConsoleUiServiceImpl();
 

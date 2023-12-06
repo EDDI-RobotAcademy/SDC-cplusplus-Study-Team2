@@ -30,6 +30,7 @@ int main() {
     Board *board;
 
     board = ConsoleUiService.creatPost();
+    ConsoleUiService.postExit();
     return 0;
 
 

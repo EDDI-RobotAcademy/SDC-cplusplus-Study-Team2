@@ -1,10 +1,11 @@
+/*
 //
 // Created by junghwan on 23. 12. 6.
 //
 
 #include "ConsoleUiController.h"
 
-/*BoardController::BoardController(std::shared_ptr<BoardService> boardService) : boardService(boardService) { }
+ConsoleUiController::ConsoleUiController(std::shared_ptr<BoardService> boardService) : boardService(boardService) { }
 
 std::vector<Board> BoardController::boardList()
 {
@@ -12,5 +13,6 @@ std::vector<Board> BoardController::boardList()
 
     //boardService->list();
 
-    return boardService->list();*/
-/*}*/
+    return boardService->list();
+}
+*/

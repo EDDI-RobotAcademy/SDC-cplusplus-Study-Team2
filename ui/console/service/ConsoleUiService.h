@@ -22,11 +22,11 @@ class ConsoleUiService {
 public:
     virtual ~ConsoleUiService() = default;
     virtual Board *creatPost() = 0;
-/*    virtual std::vector<UiServiceExitHandler> UiServiceExitHandler() = 0;
-    virtual std::vector<UiServiceListHandler> UiServiceListHandler() = 0;
-    virtual std::vector<UiServiceModifyHandler> UiServiceModifyHandler() = 0;
-    virtual std::vector<UiServiceReadHandler> UiServiceReadHandler() = 0;
-    virtual std::vector<UiServiceRemoveHandler> UiServiceRemoveHandler() = 0;*/
+    virtual void postExit () = 0;
+    virtual void postList () = 0;
+    virtual void postModify () = 0;
+    virtual void postRead () = 0;
+    virtual void postRemove () = 0;
 };
 
 #endif //CLASS_TEST_CONSOLEUISERVICE_H

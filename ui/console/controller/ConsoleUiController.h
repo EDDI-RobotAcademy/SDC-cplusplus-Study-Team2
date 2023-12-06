@@ -1,3 +1,4 @@
+/*
 //
 // Created by junghwan on 23. 12. 6.
 //
@@ -6,9 +7,9 @@
 #define CLASS_TEST_CONSOLEUICONTROLLER_H
 
 
-/*class ConsoleUiController {
+class ConsoleUiController {
 private:
-    std::shared_ptr<BoardService> boardService;
+    ConsoleUiController postCreate;7
     //BoardService* boardService;
 
 public:
@@ -17,7 +18,8 @@ public:
     std::vector<Board> boardList();
     Board boardRead(int);
     void boardWrite(BoardRequestFormWrite);
-};*/
+};
 
 
 #endif //CLASS_TEST_CONSOLEUICONTROLLER_H
+*/
