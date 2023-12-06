@@ -11,6 +11,7 @@ public:
     console_window();
     ~console_window();
     void start_console_ui_window();
+    int user_choice_number_for_account_command();
     int user_choice_number_for_board_command();
 };
 

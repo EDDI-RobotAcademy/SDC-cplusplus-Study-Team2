@@ -7,7 +7,7 @@
 #include "board/repository/BoardRepositoryImpl.h"
 
 #include "ui/console/window/console_window.h"
-#include "ui/console/service/handler/create/UiServiceCreateHandler.h"
+#include "ui/console/service/ConsoleUiServiceImpl.h"
 
 int main() {
 
@@ -23,11 +23,14 @@ int main() {
 
     //boardManager.startBoard();
 
-    console_window _console_window;
-    std::make_shared<UiServiceCreateHandler>();
-    _console_window.start_console_ui_window();
+    //console_window _console_window;
+//    std::make_shared<UiServiceCreateHandler>();
+//    _console_window.start_console_ui_window();
+    ConsoleUiServiceImpl ConsoleUiService;
+    Board *board;
+
+    board = ConsoleUiService.creatPost();
     return 0;
 
 
-    return 0;
 }

@@ -9,8 +9,8 @@
 #include "../../../board/service/BoardServiceImpl.h"
 #include "../../../board/repository/BoardRepository.h"
 #include "../../../board/repository/BoardRepositoryImpl.h"
-#include "../user_keyboard/user_keyboard_input.h"
-#include "../service/handler/create/UiServiceCreateHandler.h"
+#include "../service/ConsoleUiService.h"
+#include "../service/ConsoleUiServiceImpl.h"
 
 #include <string>
 #include <iostream>
@@ -36,12 +36,13 @@ void console_window::start_console_ui_window()
         user_choice_command_number = user_choice_number_for_board_command();
         if(user_choice_command_number == 1)
         {
-            UiServiceCreateHandler _uiServiceCreateHandler;
-            _uiServiceCreateHandler.getCreatPost();
+            ConsoleUiServiceImpl ConsoleUiServiceImpl;
+            ConsoleUiServiceImpl.creatPost();
 
         }
     }
 }
+
 
 int console_window::user_choice_number_for_board_command()
 {
