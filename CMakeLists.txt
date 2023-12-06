@@ -8,31 +8,25 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
 
 set(CMAKE_BUILD_TYPE Debug)
-find_package(GTest REQUIRED)
 
-if(GTest_FOUND)
-    include_directories(${GTEST_INCLUDE_DIRS})
-else()
-    message(FATAL_ERROR "Google Test를 찾을 수 없습니다. Google Test를 설치하세요.")
-endif()
-
-enable_testing()
+include(FindPkgConfig)
+pkg_check_modules(LIBMYSQLCLIENT REQUIRED mysqlclient)
+link_directories(${LIBMYSQLCLIENT_LIBRARY_DIRS})
 
 file(GLOB CPP_SOURCES
-        class_test main.cpp
-        board/controller/BoardController.cpp
-        board/service/BoardServiceImpl.cpp
-        board/entity/Board.cpp
-        mysql/DbProcess.cpp
-        board/repository/BoardRepositoryImpl.cpp
-        board/manager/BoardManager.cpp
-        board/service/response/BoardResponseList.cpp
-        board/service/response/BoardResponseRead.cpp
-        board/service/request/BoardRequestFormWrite.cpp
-        ui/console/service/ConsoleUiServiceImpl.cpp
-        ui/console/user_keyboard/user_keyboard_input.cpp
-        ui/console/window/console_window.cpp
-        ui/console/controller/ConsoleUiController.cpp
+        "mysql/*.cpp"
+        "board/controller/*.cpp"
+        "board/service/*.cpp"
+        "board/entity/*.cpp"
+        "board/repository/*.cpp"
+        "board/manager/*.cpp"
+        "board/service/response/*.cpp"
+        "board/service/response/*.cpp"
+        "board/service/request/*.cpp"
+        "ui/console/service/*.cpp"
+        "ui/console/user_keyboard/*.cpp"
+        "ui/console/window/*.cpp"
+        "ui/console/controller/*.cpp"
 )
 
 file(GLOB MAIN_SOURCES
