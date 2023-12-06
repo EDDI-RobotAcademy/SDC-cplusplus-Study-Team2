@@ -81,8 +81,8 @@ Board BoardRepositoryImpl::findPost(int uid) {
     }
 
     std::cout << "찾을 수 없음!" << std::endl;
-    Board b(0,"",0,"");
-    return b;
+    Board board("hi", "hi", "hi");
+    return board;
 }
 
 void BoardRepositoryImpl::writePost(Board _request) {

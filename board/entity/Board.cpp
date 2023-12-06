@@ -4,15 +4,12 @@
 
 #include "Board.h"
 
-Board::Board(unsigned int id, const std::string& title, const unsigned int& writer, const std::string& content)
-        : id(id),
-          title(title),
+Board::Board(const std::string& title, const std::string& writer, const std::string& content)
+        : title(title),
           writer(writer),
-          content(content),
-          created_at(std::chrono::system_clock::now()),
-          updated_at(created_at) { }
+          content(content) { }
 
-Board::Board(unsigned int id, const std::string& title, const unsigned int& writer, const std::string& content,
+Board::Board(int id, const std::string& title, const std::string& writer, const std::string& content,
       const std::string& reg_date, const std::string& upd_date)
         : id(id),
           title(title),
