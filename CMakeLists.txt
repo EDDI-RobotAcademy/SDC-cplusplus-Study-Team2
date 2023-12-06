@@ -1,39 +1,45 @@
 cmake_minimum_required(VERSION 3.26)
-project(class_test)
+project(cpp_gtest)
+
+set(CMAKE_C_COMPILER "clang")
+set(CMAKE_CXX_COMPILER "clang++")
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
+
+set(CMAKE_BUILD_TYPE Debug)
 
 include(FindPkgConfig)
 pkg_check_modules(LIBMYSQLCLIENT REQUIRED mysqlclient)
-
 link_directories(${LIBMYSQLCLIENT_LIBRARY_DIRS})
 
-add_executable(class_test main.cpp
-        board/controller/BoardController.cpp
-        board/controller/BoardController.h
-        board/service/BoardService.h
-        board/service/BoardServiceImpl.cpp
-        board/service/BoardServiceImpl.h
-        board/entity/Board.cpp
-        board/entity/Board.h
-        board/repository/BoardRepository.h
-        mysql/DbProcess.cpp
-        mysql/DbProcess.h
-        board/repository/BoardRepositoryImpl.cpp
-        board/repository/BoardRepositoryImpl.h
-        board/entity/manager/BoardManager.cpp
-        board/entity/manager/BoardManager.h
-        board/service/response/BoardResponseList.cpp
-        board/service/response/BoardResponseList.h
-        board/service/response/BoardResponseRead.cpp
-        board/service/response/BoardResponseRead.h
-        board/service/request/BoardRequestFormWrite.cpp
-        board/service/request/BoardRequestFormWrite.h
-        board/adapter/BoardAdapter.cpp
-        board/adapter/BoardAdapter.h
-        board/adapter/request/RequestAccountUidToAccountNameForm.cpp
-        board/adapter/request/RequestAccountUidToAccountNameForm.h
+
+file(GLOB CPP_SOURCES
+        "mysql/*.cpp"
+        "board/controller/*.cpp"
+        "board/service/*.cpp"
+        "board/entity/*.cpp"
+        "board/repository/*.cpp"
+        "board/manager/*.cpp"
+        "board/service/response/*.cpp"
+        "board/service/response/*.cpp"
+        "board/service/request/*.cpp"
+        "ui/console/service/*.cpp"
+        "ui/console/user_keyboard/*.cpp"
+        "ui/console/window/*.cpp"
+        "ui/console/controller/*.cpp"
 )
 
-target_include_directories(class_test PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})
-target_link_libraries(class_test PRIVATE ${LIBMYSQLCLIENT_LIBRARIES})
+file(GLOB MAIN_SOURCES
+        "*.cpp"
+)
+
+add_executable(
+        cpp_gtest
+        ${CPP_SOURCES}
+        ${MAIN_SOURCES}
+
+)
+
+target_include_directories(cpp_gtest PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})
+target_link_libraries(cpp_gtest PRIVATE ${LIBMYSQLCLIENT_LIBRARIES})
