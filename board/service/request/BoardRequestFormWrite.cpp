@@ -5,7 +5,7 @@
 #include <iostream>
 #include "BoardRequestFormWrite.h"
 
-#include "../../manager/BoardManager.h"
+#include "../../entity/manager/BoardManager.h"
 #include "../BoardServiceImpl.h"
 #include "../../repository/BoardRepositoryImpl.h"
 

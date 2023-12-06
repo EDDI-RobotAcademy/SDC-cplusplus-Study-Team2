@@ -3,7 +3,7 @@
 //
 
 #include "BoardRepositoryImpl.h"
-#include "../manager/BoardManager.h"
+#include "../entity/manager/BoardManager.h"
 #include "../../mysql/DbProcess.h"
 #include "../service/BoardServiceImpl.h"
 
@@ -86,5 +86,5 @@ Board BoardRepositoryImpl::findPost(int uid) {
 }
 
 void BoardRepositoryImpl::writePost(Board _request) {
-
+    // 정환씨가 DB 파악 끝나면 작성해도됨
 }

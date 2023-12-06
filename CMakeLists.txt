@@ -13,6 +13,7 @@ include(FindPkgConfig)
 pkg_check_modules(LIBMYSQLCLIENT REQUIRED mysqlclient)
 link_directories(${LIBMYSQLCLIENT_LIBRARY_DIRS})
 
+
 file(GLOB CPP_SOURCES
         "mysql/*.cpp"
         "board/controller/*.cpp"
