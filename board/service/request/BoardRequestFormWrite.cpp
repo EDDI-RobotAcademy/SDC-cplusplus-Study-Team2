@@ -24,5 +24,3 @@ Board BoardRequestFormWrite::requestToBoardForDB() {
     Board request(boardUid, title, accountUid, content);
     return request;
 }
-
-
