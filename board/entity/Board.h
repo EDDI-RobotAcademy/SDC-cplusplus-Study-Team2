@@ -29,7 +29,7 @@ public:
     void printBoardInfo() const;
     int getBoardUID();
     std::string getTitle();
-    int getWriter();
+    std::string getWriter();
     std::string getContent();
 };
 

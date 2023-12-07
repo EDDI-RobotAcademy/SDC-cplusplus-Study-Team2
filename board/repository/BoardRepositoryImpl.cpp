@@ -29,8 +29,7 @@ std::vector<Board> fetchResults(MYSQL* conn) {
             Board board(
                     std::stoi(row[0]),                        // board_id
                     row[3],                                     // title
-                    //(unsigned int)std::stoul(row[5]),     // writer
-                    0,
+                    row[5],                                     // writer,
                     row[1],                                 // content
                     row[2] ? row[2] : "NULL",               // reg_date
                     row[4] ? row[4] : "NULL"                // upd_date
@@ -81,7 +80,7 @@ Board BoardRepositoryImpl::findPost(int uid) {
     }
 
     std::cout << "찾을 수 없음!" << std::endl;
-    Board board(uid,"hi", 0, "hi");
+    Board board(uid,"hi", "", "hi");
     return board;
 }
 
@@ -125,4 +124,23 @@ void BoardRepositoryImpl::editPost(BoardRequestFormEdit _request) {
 
     // 이거 알아서 잘 해주세용
     db.updateData(boardUid, newTitle, newContent);
+}
+
+void BoardRepositoryImpl::removePost(int _boardUid) {
+    std::cout << "BoardRepository: 게시물 수정!" << std::endl;
+
+    // mysql 접속기
+    const char* DB_HOST = "localhost";
+    const char* DB_USER = "eddi";
+    const char* DB_PASS = "eddi@123";
+    const char* DB_NAME = "test_db";
+
+    DbProcess db(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+    if (!db.connect()) {
+        std::cerr << "Connection error" << std::endl;
+    }
+
+    // 체크 바람
+    db.deleteData(_boardUid);
 }

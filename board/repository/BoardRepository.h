@@ -17,6 +17,8 @@ public:
     virtual Board findPost(int) = 0;
     virtual void writePost(Board) = 0;
     virtual void editPost(BoardRequestFormEdit) = 0;
+    virtual void removePost(int) = 0;
+
 };
 
 #endif //CLASS_TEST_BOARDREPOSITORY_H

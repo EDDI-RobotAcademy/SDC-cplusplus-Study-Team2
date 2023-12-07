@@ -15,6 +15,7 @@ public:
     Board findPost(int) override;
     void writePost(Board) override;
     void editPost(BoardRequestFormEdit) override;
+    void removePost(int) override;
 };
 
 

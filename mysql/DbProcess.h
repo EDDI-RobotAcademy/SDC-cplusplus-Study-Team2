@@ -15,10 +15,10 @@ public:
 
     bool connect();
     bool insertData();
-    bool updateData(unsigned int boardId, const std::string& newTitle, const std::string& newContent);
-    bool deleteData(unsigned int boardId);
+    bool updateData(int boardId, const std::string& newTitle, const std::string& newContent);
+    bool deleteData(int boardId);
     void selectData();
-    void readData(unsigned int boardId);
+    void readData(int boardId);
 
     MYSQL *getConn();
 

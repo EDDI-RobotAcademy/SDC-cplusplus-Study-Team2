@@ -22,7 +22,7 @@ public:
     Board read(int) override;
     void write(BoardRequestFormWrite) override;
     void edit(BoardRequestFormEdit) override;
-    void remove() override;
+    void remove(int) override;
 };
 
 
