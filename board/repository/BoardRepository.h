@@ -13,7 +13,7 @@ class BoardRepository {
 public:
     virtual ~BoardRepository() = default;
     virtual std::vector<Board> findAll() = 0;
-    virtual Board findPost(int) = 0;
+    virtual Board findPost(unsigned int) = 0;
     virtual void writePost(Board) = 0;
 
 };

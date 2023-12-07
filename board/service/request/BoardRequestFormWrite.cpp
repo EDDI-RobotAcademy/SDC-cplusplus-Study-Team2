@@ -21,6 +21,6 @@ BoardRequestFormWrite::~BoardRequestFormWrite() {
 
 Board BoardRequestFormWrite::requestToBoardForDB() {
     unsigned int boardUid = boardManager.getNextUid();
-    Board board(title, "writer", content);
+    Board board(title, 0, content);
     return board;
 }

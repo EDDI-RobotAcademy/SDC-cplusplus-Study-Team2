@@ -6,12 +6,12 @@
 #define CLASS_TEST_BOARDADAPTER_H
 
 #include "request/RequestAccountUidToAccountNameForm.h"
-
+#include <string>
 class BoardAdapter {
 public:
     BoardAdapter() = default;
     ~BoardAdapter()= default;
-    unsigned int requestAccountNameToAccountAdapter(unsigned int _accountUid);
+    std::string requestAccountNameToAccountAdapter(unsigned int _accountUid);
 };
 
 

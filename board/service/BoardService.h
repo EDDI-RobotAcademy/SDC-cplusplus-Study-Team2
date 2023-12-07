@@ -16,7 +16,7 @@ public:
     // 앞으로 만들거긴 한데, 지금은 선언만 해둘
     virtual ~BoardService() = default;
     virtual std::vector<Board> list() = 0;
-    virtual Board read(int) = 0;
+    virtual Board read(unsigned int) = 0;
     virtual void write(BoardRequestFormWrite) = 0;
     virtual void edit() = 0;
     virtual void remove() = 0;
