@@ -27,7 +27,7 @@ Board *ConsoleUiServiceImpl::creatPost() {
     _user_keyboard_input.get_user_keyboard_input_with_message(content_print, content);
 
     // 새로운 객체를 생성하고 값을 설정
-    Board *newPost = new Board(title, writer, content);
+    Board *newPost = new Board(title, 0, content);
 
     std::cout << "\n제목 :" << title << "내용: " << writer << "내용: " << content << std::endl;
 

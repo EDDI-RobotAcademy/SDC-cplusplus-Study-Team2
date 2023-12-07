@@ -5,9 +5,9 @@
 #include "BoardAdapter.h"
 //#include "../../account/adapter/AccountAdapter.h"
 
-unsigned int BoardAdapter::requestAccountNameToAccountAdapter(unsigned int _accountUid) {
+std::string BoardAdapter::requestAccountNameToAccountAdapter(unsigned int _accountUid) {
 
     //AccountAdapter accountAdapter;
     //return accountAdapter.getNameFromUid(_accountUid);
-    return 0;
+    return "abn";
 }

@@ -19,7 +19,7 @@ private:
 public:
     BoardServiceImpl(std::shared_ptr<BoardRepository> boardRepository);
     std::vector<Board> list() override;
-    Board read(int) override;
+    Board read(unsigned int) override;
     void write(BoardRequestFormWrite) override;
     void edit() override;
     void remove() override;

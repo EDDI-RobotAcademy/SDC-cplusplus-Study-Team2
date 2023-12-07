@@ -49,7 +49,7 @@ std::vector<Board> fetchResults(MYSQL* conn) {
 
 std::vector<Board> BoardRepositoryImpl::findAll()
 {
-    std::cout << "BoardReopository: 리스트 전체 출력!" << std::endl;
+    std::cout << "BoardRepository: 리스트 전체 출력!" << std::endl;
 
     // mysql 접속
     const char* DB_HOST = "localhost";
@@ -72,7 +72,7 @@ std::vector<Board> BoardRepositoryImpl::findAll()
     return boardList;
 }
 
-Board BoardRepositoryImpl::findPost(int uid) {
+Board BoardRepositoryImpl::findPost(unsigned int uid) {
     int boardCount = (int)boardManager.getBoardList().size();
     for(int i = 0; i < boardCount; i++){
         if(uid == boardManager.getBoardList()[i].getBoardUID()){
@@ -81,10 +81,23 @@ Board BoardRepositoryImpl::findPost(int uid) {
     }
 
     std::cout << "찾을 수 없음!" << std::endl;
-    Board board("hi", "hi", "hi");
+    Board board("hi", 0, "hi");
     return board;
 }
 
 void BoardRepositoryImpl::writePost(Board _request) {
-    // 정환씨가 DB 파악 끝나면 작성해도됨
+
+    std::cout << "BoardRepository: 게시물 쓰!" << std::endl;
+
+    // mysql 접속
+    const char* DB_HOST = "localhost";
+    const char* DB_USER = "eddi";
+    const char* DB_PASS = "eddi@123";
+    const char* DB_NAME = "test_db";
+
+    DbProcess db(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+    if (!db.connect()) {
+        std::cerr << "Connection error" << std::endl;
+    }
 }

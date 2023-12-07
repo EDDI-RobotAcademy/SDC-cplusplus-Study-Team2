@@ -4,12 +4,12 @@
 
 #include "Board.h"
 
-Board::Board(const std::string& title, const std::string& writer, const std::string& content)
+Board::Board(const std::string& title, const unsigned int writer, const std::string& content)
         : title(title),
           writer(writer),
           content(content) { }
 
-Board::Board(int id, const std::string& title, const std::string& writer, const std::string& content,
+Board::Board(int id, const std::string& title, const unsigned int writer, const std::string& content,
       const std::string& reg_date, const std::string& upd_date)
         : id(id),
           title(title),
@@ -31,4 +31,16 @@ void Board::printBoardInfo() const {
 
 unsigned int Board::getBoardUID() {
     return id;
+}
+
+std::string Board::getTitle() {
+    return title;
+}
+
+unsigned int Board::getWriter() {
+    return writer;
+}
+
+std::string Board::getContent() {
+    return content;
 }

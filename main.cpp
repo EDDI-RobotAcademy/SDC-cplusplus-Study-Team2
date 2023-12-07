@@ -16,21 +16,24 @@ int main() {
 //    BoardService* boardService = new BoardServiceImpl();
 // make::shared : 공유 포인터 선언
 // 다른곳에서 헤더참조만 하면 언제든 사용 할 수 있음
-/*    auto boardRepository = std::make_shared<BoardRepositoryImpl>();
+    auto boardRepository = std::make_shared<BoardRepositoryImpl>();
     auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
     auto boardController = std::make_shared<BoardController>(boardService);
-    boardManager = BoardManager(boardController);*/
+    boardManager = BoardManager(boardController);
 
-    //boardManager.startBoard();
+    boardManager.startBoard();
+    boardController->boardRead(2);
 
     //console_window _console_window;
 //    std::make_shared<UiServiceCreateHandler>();
 //    _console_window.start_console_ui_window();
-    ConsoleUiServiceImpl ConsoleUiService;
-    Board *board;
+//    ConsoleUiServiceImpl ConsoleUiService;
+//    Board *board;
+//
+//    board = ConsoleUiService.creatPost();
+//    ConsoleUiService.postExit();
 
-    board = ConsoleUiService.creatPost();
-    ConsoleUiService.postExit();
+
     return 0;
 
 
