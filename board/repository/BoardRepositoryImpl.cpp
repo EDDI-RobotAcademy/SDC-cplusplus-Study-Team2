@@ -106,7 +106,7 @@ void BoardRepositoryImpl::writePost(Board _request) {
 }
 
 void BoardRepositoryImpl::editPost(BoardRequestFormEdit _request) {
-    std::cout << "BoardRepository: 게시물 쓰기!" << std::endl;
+    std::cout << "BoardRepository: 게시물 수정!" << std::endl;
 
     // mysql 접속기
     const char* DB_HOST = "localhost";

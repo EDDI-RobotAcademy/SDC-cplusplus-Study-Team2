@@ -27,9 +27,9 @@ int main() {
     BoardRequestFormWrite request("아아",12,"되냐");
     boardController->boardWrite(request);
     boardController->boardList();
-    BoardRequestFormEdit requestFormEdit(0,"이거도","되냐");
+    BoardRequestFormEdit requestFormEdit(8,"이거도","되냐");
     boardController->boardEdit(requestFormEdit);
-
+    boardController->boardList();
     //console_window _console_window;
 //    std::make_shared<UiServiceCreateHandler>();
 //    _console_window.start_console_ui_window();

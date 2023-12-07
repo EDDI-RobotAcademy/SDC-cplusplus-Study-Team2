@@ -20,11 +20,11 @@ std::vector<Board> BoardController::boardList()
     return boardService->list();
 }
 
-Board BoardController::boardRead(int uid) {
+Board BoardController::boardRead(int _boardUid) {
 
     std::cout << "BoardController: 게시물 출력!" << std::endl;
 
-    return boardService->read(uid);
+    return boardService->read(_boardUid);
 }
 
 void BoardController::boardWrite(BoardRequestFormWrite _request) {

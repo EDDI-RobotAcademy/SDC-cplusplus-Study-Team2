@@ -7,7 +7,9 @@
 
 
 BoardRequestFormEdit::BoardRequestFormEdit(int _boardUid, std::string _title, std::string _content) :
-            boardUid(_boardUid), title(_title), content(_content) {}
+            boardUid(_boardUid), title(_title), content(_content) {
+    std::cout << "야호 수정한다요" << std::endl;
+}
 
 
 BoardRequestFormEdit::~BoardRequestFormEdit() {
