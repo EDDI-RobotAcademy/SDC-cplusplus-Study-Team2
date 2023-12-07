@@ -25,7 +25,7 @@ Board::Board(int id, const std::string& title, const std::string& writer, const 
           writer(writer),
           content(content) {}
 
-Board::Board(int id, const std::string& title, int writer, const std::string& content,
+Board::Board(int id, const std::string& title, const std::string& writer, const std::string& content,
       const std::string& reg_date, const std::string& upd_date)
         : id(id),
           title(title),
