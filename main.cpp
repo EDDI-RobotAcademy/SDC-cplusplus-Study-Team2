@@ -24,6 +24,10 @@ int main() {
     boardManager.startBoard();
     boardController->boardRead(2);
 
+    BoardRequestFormWrite request(12,"아아","되냐");
+    boardController->boardWrite(request);
+    boardController->boardList();
+
     //console_window _console_window;
 //    std::make_shared<UiServiceCreateHandler>();
 //    _console_window.start_console_ui_window();

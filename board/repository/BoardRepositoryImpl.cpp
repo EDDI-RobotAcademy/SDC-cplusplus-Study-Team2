@@ -87,9 +87,9 @@ Board BoardRepositoryImpl::findPost(unsigned int uid) {
 
 void BoardRepositoryImpl::writePost(Board _request) {
 
-    std::cout << "BoardRepository: 게시물 쓰!" << std::endl;
+    std::cout << "BoardRepository: 게시물 쓰기!" << std::endl;
 
-    // mysql 접속
+    // mysql 접속기
     const char* DB_HOST = "localhost";
     const char* DB_USER = "eddi";
     const char* DB_PASS = "eddi@123";
@@ -100,4 +100,7 @@ void BoardRepositoryImpl::writePost(Board _request) {
     if (!db.connect()) {
         std::cerr << "Connection error" << std::endl;
     }
+
+    // _request를 파라미터로 받아서 insertData가 동작해야함
+    db.insertData();
 }
