@@ -19,7 +19,7 @@ public:
     ~BoardRequestFormEdit();
     std::string getTitle();
     std::string getContent();
-    int getBoardUid();
+    int getBoardUid() const;
 };
 
 

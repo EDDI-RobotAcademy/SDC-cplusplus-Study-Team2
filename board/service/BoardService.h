@@ -20,7 +20,7 @@ public:
     virtual Board read(int) = 0;
     virtual void write(BoardRequestFormWrite) = 0;
     virtual void edit(BoardRequestFormEdit) = 0;
-    virtual void remove() = 0;
+    virtual void remove(int) = 0;
 };
 
 #endif //CLASS_TEST_BOARDSERVICE_H

@@ -53,7 +53,7 @@ std::string Board::getTitle() {
     return title;
 }
 
-int Board::getWriter() {
+std::string Board::getWriter() {
     return writer;
 }
 

@@ -22,13 +22,15 @@ int main() {
     boardManager = BoardManager(boardController);
 
     boardManager.startBoard();
-    boardController->boardRead(2);
+    boardController->boardRead(boardManager.getBoardList()[0].getBoardUID());
 
-    BoardRequestFormWrite request("아아",12,"되냐");
+    BoardRequestFormWrite request("아아","이거","되냐");
     boardController->boardWrite(request);
     boardController->boardList();
-    BoardRequestFormEdit requestFormEdit(8,"이거도","되냐");
+    BoardRequestFormEdit requestFormEdit(boardManager.getBoardList()[0].getBoardUID(),"이거도","되냐");
     boardController->boardEdit(requestFormEdit);
+    boardController->boardList();
+    boardController->boardRemove(boardManager.getBoardList()[0].getBoardUID());
     boardController->boardList();
     //console_window _console_window;
 //    std::make_shared<UiServiceCreateHandler>();

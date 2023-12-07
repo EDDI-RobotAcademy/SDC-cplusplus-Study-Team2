@@ -24,7 +24,7 @@ std::string BoardRequestFormEdit::getContent() {
     return content;
 }
 
-int BoardRequestFormEdit::getBoardUid() {
+int BoardRequestFormEdit::getBoardUid() const {
     return boardUid;
 }
 
