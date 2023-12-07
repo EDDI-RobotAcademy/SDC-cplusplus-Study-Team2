@@ -3,13 +3,29 @@
 //
 
 #include "Board.h"
+#include "../repository/BoardRepositoryImpl.h"
+#include "../service/BoardServiceImpl.h"
+#include "manager/BoardManager.h"
 
-Board::Board(const std::string& title, const unsigned int writer, const std::string& content)
+//BoardManager boardManager(std::make_shared<BoardController>(std::make_shared<BoardServiceImpl>(std::make_shared<BoardRepositoryImpl>())));
+
+Board::Board(const std::string& title, int writer, const std::string& content)
         : title(title),
           writer(writer),
-          content(content) { }
+          content(content) {
 
-Board::Board(int id, const std::string& title, const unsigned int writer, const std::string& content,
+    id = boardManager.getNextUid();
+
+    std::cout << id << "번째 게시물 생성" << std::endl;
+}
+
+Board::Board(int id, const std::string& title, int writer, const std::string& content)
+        : id(id),
+          title(title),
+          writer(writer),
+          content(content) {}
+
+Board::Board(int id, const std::string& title, int writer, const std::string& content,
       const std::string& reg_date, const std::string& upd_date)
         : id(id),
           title(title),
@@ -29,7 +45,7 @@ void Board::printBoardInfo() const {
         << ", Updated At: " << std::chrono::system_clock::to_time_t(updated_at) << std::endl;
 }
 
-unsigned int Board::getBoardUID() {
+int Board::getBoardUID() {
     return id;
 }
 
@@ -37,7 +53,7 @@ std::string Board::getTitle() {
     return title;
 }
 
-unsigned int Board::getWriter() {
+int Board::getWriter() {
     return writer;
 }
 

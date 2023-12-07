@@ -4,7 +4,7 @@
 
 TEST(boardEntity, createBoardEntity)
 {
-    Board *board = new Board("hi", "hi",  "why");
+    Board *board = new Board("hi", 0,  "why");
     board->printBoardInfo();
 
     EXPECT_NE(board, nullptr);

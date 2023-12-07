@@ -28,8 +28,12 @@ void BoardManager::printBoardList() {
     }
 }
 
-unsigned int BoardManager::getNextUid(){
-    return nextUid;
+int BoardManager::getNextUid(){
+    return nextUid++;
+}
+
+void setNextUid(){
+
 }
 
 std::vector<Board> BoardManager::getBoardList() {

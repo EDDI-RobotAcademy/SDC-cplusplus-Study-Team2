@@ -14,21 +14,22 @@ class Board {
 private:
     int id;
     std::string title;
-    unsigned int writer;
+    int writer;
     std::string content;
 
     std::chrono::system_clock::time_point created_at;
     std::chrono::system_clock::time_point updated_at;
 
 public:
-    Board(const std::string& title, const unsigned int writer, const std::string& content);
-    Board(int id, const std::string& title, const unsigned int writer, const std::string& content,
+    Board(const std::string& title, int writer, const std::string& content);
+    Board(int id, const std::string& title, int writer, const std::string& content);
+    Board(int id, const std::string& title, int writer, const std::string& content,
           const std::string& reg_date, const std::string& upd_date);
 
     void printBoardInfo() const;
-    unsigned int getBoardUID();
+    int getBoardUID();
     std::string getTitle();
-    unsigned int getWriter();
+    int getWriter();
     std::string getContent();
 };
 

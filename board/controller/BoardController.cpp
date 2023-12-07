@@ -3,6 +3,7 @@
 //
 
 #include "BoardController.h"
+#include "../entity/manager/BoardManager.h"
 
 #include <iostream>
 #include <vector>
@@ -30,5 +31,15 @@ void BoardController::boardWrite(BoardRequestFormWrite _request) {
 
     std::cout << "BoardController: 게시물 작성!" << std::endl;
     boardService->write(_request);
+
 }
+
+void BoardController::boardEdit(BoardRequestFormEdit _request) {
+
+    std::cout << "BoardController: 게시물 수정!" << std::endl;
+
+    boardService->edit(_request);
+}
+
+
 

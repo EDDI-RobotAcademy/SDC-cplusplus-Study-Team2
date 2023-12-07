@@ -72,7 +72,7 @@ std::vector<Board> BoardRepositoryImpl::findAll()
     return boardList;
 }
 
-Board BoardRepositoryImpl::findPost(unsigned int uid) {
+Board BoardRepositoryImpl::findPost(int uid) {
     int boardCount = (int)boardManager.getBoardList().size();
     for(int i = 0; i < boardCount; i++){
         if(uid == boardManager.getBoardList()[i].getBoardUID()){
@@ -81,7 +81,7 @@ Board BoardRepositoryImpl::findPost(unsigned int uid) {
     }
 
     std::cout << "찾을 수 없음!" << std::endl;
-    Board board("hi", 0, "hi");
+    Board board(uid,"hi", 0, "hi");
     return board;
 }
 
@@ -103,4 +103,26 @@ void BoardRepositoryImpl::writePost(Board _request) {
 
     // _request를 파라미터로 받아서 insertData가 동작해야함
     db.insertData();
+}
+
+void BoardRepositoryImpl::editPost(BoardRequestFormEdit _request) {
+    std::cout << "BoardRepository: 게시물 쓰기!" << std::endl;
+
+    // mysql 접속기
+    const char* DB_HOST = "localhost";
+    const char* DB_USER = "eddi";
+    const char* DB_PASS = "eddi@123";
+    const char* DB_NAME = "test_db";
+
+    DbProcess db(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+    if (!db.connect()) {
+        std::cerr << "Connection error" << std::endl;
+    }
+    int boardUid = _request.getBoardUid();
+    std::string newTitle = _request.getTitle();
+    std::string newContent = _request.getContent();
+
+    // 이거 알아서 잘 해주세용
+    db.updateData(boardUid, newTitle, newContent);
 }

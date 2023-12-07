@@ -16,15 +16,15 @@ std::vector<Board> BoardServiceImpl::list()
     return boardRepository->findAll();
 }
 
-Board BoardServiceImpl::read(unsigned int uid) {
+Board BoardServiceImpl::read(int board_id) {
     std::cout << "BoardService: 게시물 읽기!" << std::endl;
 
-    Board boardToRead = boardRepository->findPost(uid);
+    Board boardToRead = boardRepository->findPost(board_id);
     BoardAdapter *adapter = new BoardAdapter();
 
     std::cout << "제목: " << boardToRead.getTitle() << "\n작성자: " << adapter->requestAccountNameToAccountAdapter(boardToRead.getWriter()) <<
     "\n내용: " << boardToRead.getContent() << std::endl;
-    Board b("",0,"");
+    Board b(board_id,"",0,"");
     return b;
 }
 
@@ -33,8 +33,9 @@ void BoardServiceImpl::write(BoardRequestFormWrite _request) {
     boardRepository->writePost(_request.requestToBoardForDB());
 }
 
-void BoardServiceImpl::edit() {
+void BoardServiceImpl::edit(BoardRequestFormEdit _request) {
     std::cout << "BoardService: 게시물 수정!" << std::endl;
+    boardRepository->editPost(_request);
 }
 
 void BoardServiceImpl::remove() {

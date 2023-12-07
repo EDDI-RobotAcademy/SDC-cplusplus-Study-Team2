@@ -12,6 +12,7 @@
 #include "../service/BoardService.h"
 #include "../entity/Board.h"
 #include "../service/request/BoardRequestFormWrite.h"
+#include "../service/request/BoardRequestFormEdit.h"
 
 class BoardController {
 private:
@@ -24,6 +25,7 @@ public:
     std::vector<Board> boardList();
     Board boardRead(int);
     void boardWrite(BoardRequestFormWrite);
+    void boardEdit(BoardRequestFormEdit);
 };
 
 

@@ -6,6 +6,9 @@ set(CMAKE_CXX_STANDARD 17)
 # 돌리고자 하는 경로를 지정합니다.
 file(GLOB CPP_SOURCES
         "../../board/entity/Board.cpp"
+        "../../board/entity/manager/BoardManager.cpp"
+        "../../board/repository/BoardRepositoryImpl.h"
+        "../../board/service/BoardServiceImpl.h"
 )
 
 find_package(GTest REQUIRED)
