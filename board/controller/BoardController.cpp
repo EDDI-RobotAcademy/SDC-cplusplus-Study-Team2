@@ -41,5 +41,11 @@ void BoardController::boardEdit(BoardRequestFormEdit _request) {
     boardService->edit(_request);
 }
 
+void BoardController::boardRemove(int _boardUid) {
+    std::cout << "BoardController: 게시물 삭제!" << std::endl;
+
+    boardService->remove(_boardUid);
+}
+
 
 

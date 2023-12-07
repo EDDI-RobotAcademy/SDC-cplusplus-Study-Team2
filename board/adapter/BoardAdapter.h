@@ -11,7 +11,7 @@ class BoardAdapter {
 public:
     BoardAdapter() = default;
     ~BoardAdapter()= default;
-    std::string requestAccountNameToAccountAdapter(unsigned int _accountUid);
+   // std::string requestAccountNameToAccountAdapter(unsigned int _accountUid);
 };
 
 

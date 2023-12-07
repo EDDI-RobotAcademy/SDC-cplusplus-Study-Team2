@@ -9,7 +9,7 @@
 
 //BoardManager boardManager(std::make_shared<BoardController>(std::make_shared<BoardServiceImpl>(std::make_shared<BoardRepositoryImpl>())));
 
-Board::Board(const std::string& title, int writer, const std::string& content)
+Board::Board(const std::string& title, const std::string& writer, const std::string& content)
         : title(title),
           writer(writer),
           content(content) {
@@ -19,7 +19,7 @@ Board::Board(const std::string& title, int writer, const std::string& content)
     std::cout << id << "번째 게시물 생성" << std::endl;
 }
 
-Board::Board(int id, const std::string& title, int writer, const std::string& content)
+Board::Board(int id, const std::string& title, const std::string& writer, const std::string& content)
         : id(id),
           title(title),
           writer(writer),

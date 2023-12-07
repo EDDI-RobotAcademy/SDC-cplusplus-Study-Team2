@@ -11,8 +11,8 @@
 
 
 
-BoardRequestFormWrite::BoardRequestFormWrite(std::string _title, int _accountUid, std::string _content) :
-            accountUid(_accountUid), title(_title), content(_content) {}
+BoardRequestFormWrite::BoardRequestFormWrite(std::string _title,  std::string _account, std::string _content) :
+            account(_account), title(_title), content(_content) {}
 
 
 BoardRequestFormWrite::~BoardRequestFormWrite() {
@@ -21,6 +21,6 @@ BoardRequestFormWrite::~BoardRequestFormWrite() {
 
 Board BoardRequestFormWrite::requestToBoardForDB() {
     int boardUid = boardManager.getNextUid();
-    Board board(boardUid, title, accountUid, content);
+    Board board(boardUid, title, account, content);
     return board;
 }
