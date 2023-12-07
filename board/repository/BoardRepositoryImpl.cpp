@@ -8,6 +8,7 @@
 #include "../service/BoardServiceImpl.h"
 
 #include <mysql/mysql.h>
+#include <string>
 
 BoardManager boardManager(std::make_shared<BoardController>(std::make_shared<BoardServiceImpl>(std::make_shared<BoardRepositoryImpl>())));
 
@@ -27,7 +28,8 @@ std::vector<Board> fetchResults(MYSQL* conn) {
         MYSQL_ROW row;
         while ((row = mysql_fetch_row(result)) != nullptr) {
             Board board(
-                    std::stoi(row[0]),                        // board_id
+                    //std::stoi(row[0]),                        // board_id
+
                     row[3],                                     // title
                     row[5],                                     // writer,
                     row[1],                                 // content
@@ -61,13 +63,13 @@ std::vector<Board> BoardRepositoryImpl::findAll()
     if (!db.connect()) {
         std::cerr << "Connection error" << std::endl;
     }
-
+    std::cout << "여기냐1" << std::endl;
     std::vector<Board> boardList = fetchResults(db.getConn());
-
+    std::cout << "여기냐2" << std::endl;
     for (const auto& board : boardList) {
         board.printBoardInfo();
     }
-
+    std::cout << "여기냐3" << std::endl;
     return boardList;
 }
 
@@ -99,9 +101,12 @@ void BoardRepositoryImpl::writePost(Board _request) {
     if (!db.connect()) {
         std::cerr << "Connection error" << std::endl;
     }
+    std::string _title = _request.getTitle();
+    std::string _writer = _request.getWriter();
+    std::string _content = _request.getContent();
 
     // _request를 파라미터로 받아서 insertData가 동작해야함
-    db.insertData();
+    db.insertBoardData(_title, _writer, _content);
 }
 
 void BoardRepositoryImpl::editPost(BoardRequestFormEdit _request) {
@@ -119,11 +124,11 @@ void BoardRepositoryImpl::editPost(BoardRequestFormEdit _request) {
         std::cerr << "Connection error" << std::endl;
     }
     int boardUid = _request.getBoardUid();
-    std::string newTitle = _request.getTitle();
-    std::string newContent = _request.getContent();
+    std::string _newTitle = _request.getTitle();
+    std::string _newContent = _request.getContent();
 
     // 이거 알아서 잘 해주세용
-    db.updateData(boardUid, newTitle, newContent);
+    db.updateBoardData(boardUid, _newTitle, _newContent);
 }
 
 void BoardRepositoryImpl::removePost(int _boardUid) {
@@ -142,5 +147,5 @@ void BoardRepositoryImpl::removePost(int _boardUid) {
     }
 
     // 체크 바람
-    db.deleteData(_boardUid);
+    db.deleteBoardData(_boardUid);
 }
