@@ -18,13 +18,13 @@ private:
 
     std::shared_ptr<BoardController> boardController;
     std::vector<Board> boardList;
-    unsigned int nextUid;
+    int nextUid;
     void printBoardList();
 public:
     BoardManager(std::shared_ptr<BoardController> _boardController);
     ~BoardManager(){}
     void startBoard();
-    unsigned int getNextUid();
+    int getNextUid();
     std::vector<Board> getBoardList();
 
 

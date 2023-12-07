@@ -9,5 +9,5 @@ std::string BoardAdapter::requestAccountNameToAccountAdapter(unsigned int _accou
 
     //AccountAdapter accountAdapter;
     //return accountAdapter.getNameFromUid(_accountUid);
-    return "abn";
+    return "AccountAdapter로부터 받아온 이름";
 }

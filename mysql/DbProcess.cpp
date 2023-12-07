@@ -21,8 +21,8 @@ bool DbProcess::connect() {
 
 bool DbProcess::insertData() {
 
-    std::string insertQuery = "INSERT INTO abc (content, title, writer, reg_date, upd_date) VALUES \
-                               ('abc', '테스트 제목', '테스트 작성자', now(6), now(6))";
+    std::string insertQuery = "INSERT INTO board (content, title, writer, reg_date, upd_date) VALUES \
+                               ('abc', '야력', '테스트 작성자', now(6), now(6))";
 
     return (mysql_query(conn, insertQuery.c_str()) == 0);
 }

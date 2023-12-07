@@ -12,8 +12,9 @@ class BoardRepositoryImpl : public BoardRepository {
 
 public:
     std::vector<Board> findAll() override;
-    Board findPost(unsigned int) override;
+    Board findPost(int) override;
     void writePost(Board) override;
+    void editPost(BoardRequestFormEdit) override;
 };
 
 
