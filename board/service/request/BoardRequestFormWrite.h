@@ -11,11 +11,11 @@
 
 class BoardRequestFormWrite {
 private:
-    int accountUid;
+    std::string account;
     std::string title;
     std::string content;
 public:
-    BoardRequestFormWrite(std::string,int,  std::string);
+    BoardRequestFormWrite(std::string, std::string ,  std::string);
     Board requestToBoardForDB();
     ~BoardRequestFormWrite();
 };

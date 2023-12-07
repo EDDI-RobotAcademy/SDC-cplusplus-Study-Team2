@@ -26,6 +26,7 @@ public:
     Board boardRead(int);
     void boardWrite(BoardRequestFormWrite);
     void boardEdit(BoardRequestFormEdit);
+    void boardRemove(int);
 };
 
 
