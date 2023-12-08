@@ -15,6 +15,8 @@ public:
 
     bool connect();
     bool insertAccountData(const std::string& accountID, const std::string& password);
+    bool checkId(const std::string& accountId);
+    int checkAccount(const std::string& accountId, const std::string& password);
     bool insertBoardData(const std::string& title, const std::string& writer, const std::string& content);
     bool updateBoardData(int boardId, const std::string& newTitle, const std::string& newContent);
 
@@ -23,11 +25,6 @@ public:
 
     bool deleteBoardData(int boardId);
     void readBoardData(int boardId);
-
-
-    bool insertAccount(std::string accountId, std::string password);
-    bool checkAccount(std::string accountId, std::string password);
-    bool checkId(std::string accountId);
 
     MYSQL *getConn();
 

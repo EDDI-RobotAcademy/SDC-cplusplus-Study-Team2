@@ -66,9 +66,4 @@ void AccountRepositoryImpl::checkAccount()
     else if (check_Account == 1){
         std::cout << "로그인 성공" << std::endl;
     }
-
-
-
-
-
 }
