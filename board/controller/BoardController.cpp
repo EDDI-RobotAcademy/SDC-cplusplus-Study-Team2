@@ -32,6 +32,7 @@ bool BoardController::boardWrite(RequestToWrite _request) {
     std::cout << "BoardController: 게시물 작성!" << std::endl;
 
     boardService->write(_request.requestForService());
+    return true;
 
 }
 
@@ -41,11 +42,11 @@ ResponseFoundPostForEdit BoardController::findPostToEdit(int boardUid) {
 }
 
 
-void BoardController::boardEdit(RequestToEdit _request) {
+bool BoardController::boardEdit(RequestToEdit _request) {
 
     std::cout << "BoardController: 게시물 수정!" << std::endl;
-    BoardRequestFormEdit request(_request.boardUid, _request.title, _request.content);
-    boardService->edit(request);
+    boardService->edit(_request.requestForService());
+    return true;
 }
 
 void BoardController::boardRemove(int _boardUid) {

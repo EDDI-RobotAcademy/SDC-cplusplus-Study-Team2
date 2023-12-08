@@ -9,12 +9,14 @@
 #include "../../service/request/BoardRequestFormEdit.h"
 
 class RequestToEdit {
-public:
+private:
     int boardUid;
     std::string title;
     std::string content;
+public:
     RequestToEdit(int, std::string, std::string);
     ~RequestToEdit() = default;
+    BoardRequestFormEdit requestForService();
 };
 
 

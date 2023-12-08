@@ -32,7 +32,7 @@ public:
     std::vector<Board> boardList();
     Board boardRead(int);
     bool boardWrite(RequestToWrite);
-    void boardEdit(RequestToEdit);
+    bool boardEdit(RequestToEdit);
     ResponseFoundPostForEdit findPostToEdit(int);
     void boardRemove(int);
 };
