@@ -11,41 +11,52 @@
                                 // shared_ptr: sharing 되고 있는 포인터
 BoardController::BoardController(std::shared_ptr<BoardService> boardService) : boardService(boardService) { }
 
-std::vector<Board> BoardController::boardList()
+std::vector<ResponseList> BoardController::boardList()
 {
     std::cout << "BoardController: 게시물 리스트 출력!" << std::endl;
 
-    //boardService->list();
+    boardService->list();
 
     return boardService->list();
 }
 
-Board BoardController::boardRead(int _boardUid) {
+ResponseRead BoardController::boardRead(int _boardUid) {
 
     std::cout << "BoardController: 게시물 출력!" << std::endl;
-
     return boardService->read(_boardUid);
 }
 
-void BoardController::boardWrite(BoardRequestFormWrite _request) {
+bool BoardController::boardWrite(RequestToWrite _request) {
 
     std::cout << "BoardController: 게시물 작성!" << std::endl;
-    boardService->write(_request);
+
+    boardService->write(_request.requestForService());
+    return true;
 
 }
 
-void BoardController::boardEdit(BoardRequestFormEdit _request) {
+ResponseFoundPostForEdit BoardController::findPostToEdit(int boardUid) {
+    std::cout << "BoardController: 게시물 찾기!" << std::endl;
+    return boardService->findPostToEdit(boardUid);
+}
+
+
+bool BoardController::boardEdit(RequestToEdit _request) {
 
     std::cout << "BoardController: 게시물 수정!" << std::endl;
-
-    boardService->edit(_request);
+    boardService->edit(_request.requestForService());
+    return true;
 }
 
-void BoardController::boardRemove(int _boardUid) {
+bool BoardController::boardRemove(int _boardUid) {
     std::cout << "BoardController: 게시물 삭제!" << std::endl;
 
     boardService->remove(_boardUid);
+    return true;
 }
+
+
+
 
 
 

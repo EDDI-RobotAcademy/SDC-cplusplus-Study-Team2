@@ -18,9 +18,10 @@ private:
 
 public:
     BoardServiceImpl(std::shared_ptr<BoardRepository> boardRepository);
-    std::vector<Board> list() override;
-    Board read(int) override;
+    std::vector<ResponseList> list() override;
+    ResponseRead read(int) override;
     void write(BoardRequestFormWrite) override;
+    ResponseFoundPostForEdit findPostToEdit(int) override;
     void edit(BoardRequestFormEdit) override;
     void remove(int) override;
 };

@@ -26,6 +26,7 @@ public:
     void startBoard();
     int getNextUid();
     std::vector<Board> getBoardList();
+    void setBoardList(std::vector<Board>);
 
 
 };
