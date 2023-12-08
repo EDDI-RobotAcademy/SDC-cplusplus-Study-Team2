@@ -11,11 +11,12 @@
 
 class BoardRequestFormWrite {
 private:
+
     std::string title;
     std::string writer;
     std::string content;
 public:
-    BoardRequestFormWrite(std::string, std::string ,  std::string);
+    BoardRequestFormWrite(std::string, std::string, std::string);
     Board requestToBoardForDB();
     ~BoardRequestFormWrite();
 };

@@ -12,7 +12,9 @@
 
 
 BoardRequestFormWrite::BoardRequestFormWrite(std::string _title,  std::string _writer, std::string _content) :
-            writer(_writer), title(_title), content(_content) {}
+
+        title(_title), writer(_writer), content(_content) {}
+
 
 
 BoardRequestFormWrite::~BoardRequestFormWrite() {
