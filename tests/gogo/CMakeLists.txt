@@ -19,7 +19,9 @@ add_executable(${PROJECT_NAME} gtest_main.cpp ${CPP_SOURCES}
         ../../board/service/BoardServiceImpl.cpp
         ../../mysql/DbProcess.cpp
         ../../board/service/request/BoardRequestFormWrite.cpp
-        ../../board/service/request/BoardRequestFormEdit.cpp)
+        ../../board/service/request/BoardRequestFormEdit.cpp
+        ../../board/controller/request/ReqeustToBoardControllerFindPostToEdit.cpp
+        ../../board/controller/request/ReqeustToBoardControllerFindPostToEdit.h)
 target_link_libraries(${PROJECT_NAME} ${GTEST_LIBRARIES} pthread)
 
 include(FindPkgConfig)
