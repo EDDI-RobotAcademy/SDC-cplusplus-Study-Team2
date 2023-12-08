@@ -5,6 +5,9 @@
 #include "board/service/BoardServiceImpl.h"
 #include "board/repository/BoardRepository.h"
 #include "board/repository/BoardRepositoryImpl.h"
+#include "account/controller/AccountController.h"
+#include "account/service/AccountServiceImpl.h"
+#include "account/repository/AccountRepositoryImpl.h"
 
 #include "ui/console/window/console_window.h"
 #include "ui/console/service/ConsoleUiServiceImpl.h"
@@ -26,16 +29,16 @@ int main() {
     boardController->boardRead(boardManager.getBoardList()[0].getBoardUID());
     BoardRequestFormWrite request("아아","이거","되냐");
 
-    const char* DB_HOST = "localhost";
-    const char* DB_USER = "eddi";
-    const char* DB_PASS = "eddi@123";
-    const char* DB_NAME = "test_db";
+//    const char* DB_HOST = "localhost";
+//    const char* DB_USER = "eddi";
+//    const char* DB_PASS = "eddi@123";
+//    const char* DB_NAME = "test_db";
 
-    DbProcess db(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-    db.connect();
-    std::string accountID = "qwe";
-    std::string password = "123";
-    db.insertAccountData(accountID, password);
+    auto accountRepository = std::make_shared<AccountRepositoryImpl>();
+    auto accountService = std::make_shared<AccountServiceImpl>(accountRepository);
+    auto accountController = std::make_shared<AccountController>(accountService);
+    accountController->accountRegister();
+    accountController->accountLogin();
 
 /*    boardController->boardWrite(request);
     boardController->boardList();
