@@ -27,15 +27,17 @@ std::vector<Board> fetchResults(MYSQL* conn) {
 
         MYSQL_ROW row;
         while ((row = mysql_fetch_row(result)) != nullptr) {
-            Board board(
-                    //std::stoi(row[0]),                        // board_id
 
-                    row[3],                                     // title
-                    row[5],                                     // writer,
-                    row[1],                                 // content
-                    row[2] ? row[2] : "NULL",               // reg_date
-                    row[4] ? row[4] : "NULL"                // upd_date
-            );
+            //std::cout << "Value of row[0]: " << row[0] << std::endl;
+
+            Board board(
+                    std::stoi(row[0]),                        // board_id
+                    row[1],                                     // title
+                    row[2],                                     // writer,
+                    row[3],                                 // content
+                    row[4] ? row[4] : "NULL",               // reg_date
+                    row[5] ? row[5] : "NULL"                // upd_date
+    );
             // pushback : 동적배열에 저장하는 명령어
             boardList.push_back(board);
         }

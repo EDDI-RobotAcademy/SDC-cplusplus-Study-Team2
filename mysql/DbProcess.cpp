@@ -24,11 +24,35 @@ bool DbProcess::connect() {
 // DbProcess.cpp
 
 bool DbProcess::insertAccountData(const std::string& accountId, const std::string& password) {
-    std::string insertQuery = "INSERT INTO account (account_id, password, reg_date, upd_date) VALUES ('" +
-                              accountId + "', '" + password + "', NOW(6), NOW(6))";
+           // 계정 중복 확인
+        std::string checkDuplicateQuery = "SELECT COUNT(*) FROM account WHERE account_id = '" + accountId + "'";
+        if (mysql_query(conn, checkDuplicateQuery.c_str()) == 0) {
+            MYSQL_RES* result = mysql_store_result(conn);
+            if (result != nullptr) {
+                MYSQL_ROW row = mysql_fetch_row(result);
+                int rowCount = row ? std::stoi(row[0]) : 0;
+                mysql_free_result(result);
 
-    return (mysql_query(conn, insertQuery.c_str()) == 0);
-}
+                // rowCount가 0보다 크면 중복된 account_id가 있음
+                if (rowCount > 0) {
+                    std::cerr << "중복된 account_id 발견: " << accountId << std::endl;
+                    return false;
+                }
+            } else {
+                std::cerr << "중복 확인을 위한 mysql_store_result() 실패" << std::endl;
+                return false;
+            }
+        } else {
+            std::cerr << "중복 확인을 위한 mysql_query() 실패" << std::endl;
+            return false;
+        }
+
+        // 중복이 없으면 새 계정 삽입
+        std::string insertQuery = "INSERT INTO account (account_id, password, reg_date, upd_date) VALUES ('" +
+                                  accountId + "', '" + password + "', NOW(6), NOW(6))";
+
+        return (mysql_query(conn, insertQuery.c_str()) == 0);
+    }
 
 bool DbProcess::insertBoardData(const std::string& title, const std::string& writer, const std::string& content) {
     std::string insertQuery = "INSERT INTO board (title, writer, content, reg_date, upd_date) VALUES ('" +

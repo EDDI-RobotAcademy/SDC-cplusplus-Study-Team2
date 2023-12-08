@@ -8,6 +8,7 @@
 
 #include "ui/console/window/console_window.h"
 #include "ui/console/service/ConsoleUiServiceImpl.h"
+#include "mysql/DbProcess.h"
 
 int main() {
 
@@ -23,16 +24,27 @@ int main() {
 
     boardManager.startBoard();
     boardController->boardRead(boardManager.getBoardList()[0].getBoardUID());
-
     BoardRequestFormWrite request("아아","이거","되냐");
-    boardController->boardWrite(request);
+
+    const char* DB_HOST = "localhost";
+    const char* DB_USER = "eddi";
+    const char* DB_PASS = "eddi@123";
+    const char* DB_NAME = "test_db";
+
+    DbProcess db(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    db.connect();
+    std::string accountID = "qwe";
+    std::string password = "123";
+    db.insertAccountData(accountID, password);
+
+/*    boardController->boardWrite(request);
     boardController->boardList();
     BoardRequestFormEdit requestFormEdit(boardManager.getBoardList()[0].getBoardUID(),"이거도","되냐");
     boardController->boardEdit(requestFormEdit);
     boardController->boardList();
     boardController->boardRemove(boardManager.getBoardList()[0].getBoardUID());
     boardController->boardList();
-    //console_window _console_window;
+    //console_window _console_window;*/
 //    std::make_shared<UiServiceCreateHandler>();
 //    _console_window.start_console_ui_window();
 //    ConsoleUiServiceImpl ConsoleUiService;
