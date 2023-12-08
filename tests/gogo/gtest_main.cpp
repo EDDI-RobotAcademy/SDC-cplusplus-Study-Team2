@@ -2,9 +2,17 @@
 
 #include "../../board/entity/Board.h"
 
+#include "../../board/repository/BoardRepositoryImpl.h"
+#include "../../board/service/BoardServiceImpl.h"
+#include "../../board/controller/BoardController.h"
+#include "../../board/entity/manager/BoardManager.h"
+
+
+
 TEST(boardEntity, createBoardEntity)
 {
-    Board *board = new Board("hi", 0,  "why");
+    Board *board = new Board("hi", "how",  "why");
+    boardManager.startBoard();
     board->printBoardInfo();
 
     EXPECT_NE(board, nullptr);

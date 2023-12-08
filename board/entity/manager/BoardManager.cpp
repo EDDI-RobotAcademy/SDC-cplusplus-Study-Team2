@@ -14,12 +14,14 @@ void BoardManager::startBoard() {
 
     std::cout << "게시판 시작!" << std::endl;
 
+
     boardList = boardController->boardList();
-    std::cout << "여기냐4" << std::endl;
+
     if(boardList.size()!=0)
         nextUid = boardList[boardList.size()-1].getBoardUID()+1;
 
-    std::cout << "여기냐5" << std::endl;
+ 
+
 
 
 }
@@ -42,5 +44,9 @@ void setNextUid(){
 
 std::vector<Board> BoardManager::getBoardList() {
     return boardList;
+}
+
+void BoardManager::setBoardList(std::vector<Board> _boardList) {
+    boardList = _boardList;
 }
 

@@ -11,8 +11,9 @@
 
 class BoardRequestFormWrite {
 private:
-    std::string writer;
+
     std::string title;
+    std::string writer;
     std::string content;
 public:
     BoardRequestFormWrite(std::string, std::string, std::string);
