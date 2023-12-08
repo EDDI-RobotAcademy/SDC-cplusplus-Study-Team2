@@ -147,8 +147,3 @@ void DbProcess::readBoardData(int boardId) {
         std::cerr << "mysql_query() failed" << std::endl;
     }
 }
-MYSQL *DbProcess::getConn()
-{
-    std::cout << "여기냐아" << std::endl;
-    return conn;
-}
