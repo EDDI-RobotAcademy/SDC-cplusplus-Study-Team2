@@ -15,7 +15,7 @@ void BoardManager::startBoard() {
     std::cout << "게시판 시작!" << std::endl;
 
 
-    boardList = boardController->boardList();
+    boardController->boardList();
 
     if(boardList.size()!=0)
         nextUid = boardList[boardList.size()-1].getBoardUID()+1;
