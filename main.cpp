@@ -51,7 +51,7 @@ int main() {
 /*    boardController->boardWrite(request);
 
     boardController->boardList();
-    RequestToEdit requestFormEdit(boardManager.getBoardList()[0].getBoardUID(),"이거도","되냐");
+    RequestToEdits requestFormEdit(boardManager.getBoardList()[0].getBoardUID(),"이거도","되냐");
     boardController->boardEdit(requestFormEdit);
     boardController->boardList();
     boardController->boardRemove(boardManager.getBoardList()[0].getBoardUID());
