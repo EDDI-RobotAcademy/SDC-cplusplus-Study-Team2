@@ -7,9 +7,11 @@
 
 #include <vector>
 #include "response/BoardResponseList.h"
+#include "response/BoardResponseRead.h"
 #include "../entity/Board.h"
 #include "request/BoardRequestFormWrite.h"
 #include "request/BoardRequestFormEdit.h"
+#include "../controller/response/ResponseFoundPostForEdit.h"
 
 class BoardService {
 public:
@@ -19,6 +21,7 @@ public:
     virtual std::vector<Board> list() = 0;
     virtual Board read(int) = 0;
     virtual void write(BoardRequestFormWrite) = 0;
+    virtual ResponseFoundPostForEdit findPostToEdit(int) = 0;
     virtual void edit(BoardRequestFormEdit) = 0;
     virtual void remove(int) = 0;
 };

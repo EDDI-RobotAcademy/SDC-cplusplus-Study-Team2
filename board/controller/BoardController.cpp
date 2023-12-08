@@ -27,18 +27,25 @@ Board BoardController::boardRead(int _boardUid) {
     return boardService->read(_boardUid);
 }
 
-void BoardController::boardWrite(BoardRequestFormWrite _request) {
+bool BoardController::boardWrite(RequestToWrite _request) {
 
     std::cout << "BoardController: 게시물 작성!" << std::endl;
-    boardService->write(_request);
+
+    boardService->write(_request.requestForService());
 
 }
 
-void BoardController::boardEdit(BoardRequestFormEdit _request) {
+ResponseFoundPostForEdit BoardController::findPostToEdit(int boardUid) {
+    std::cout << "BoardController: 게시물 찾기!" << std::endl;
+    return boardService->findPostToEdit(boardUid);
+}
+
+
+void BoardController::boardEdit(RequestToEdit _request) {
 
     std::cout << "BoardController: 게시물 수정!" << std::endl;
-
-    boardService->edit(_request);
+    BoardRequestFormEdit request(_request.boardUid, _request.title, _request.content);
+    boardService->edit(request);
 }
 
 void BoardController::boardRemove(int _boardUid) {
@@ -46,6 +53,9 @@ void BoardController::boardRemove(int _boardUid) {
 
     boardService->remove(_boardUid);
 }
+
+
+
 
 
 

@@ -17,6 +17,8 @@ link_directories(${LIBMYSQLCLIENT_LIBRARY_DIRS})
 file(GLOB CPP_SOURCES
         "mysql/*.cpp"
         "board/controller/*.cpp"
+        "board/controller/request/*.cpp"
+        "board/controller/response/*.cpp"
         "board/service/*.cpp"
         "board/entity/*.cpp"
         "board/entity/manager/*.cpp"
@@ -28,6 +30,7 @@ file(GLOB CPP_SOURCES
         "ui/console/user_keyboard/*.cpp"
         "ui/console/window/*.cpp"
         "ui/console/controller/*.cpp"
+
 )
 
 file(GLOB MAIN_SOURCES

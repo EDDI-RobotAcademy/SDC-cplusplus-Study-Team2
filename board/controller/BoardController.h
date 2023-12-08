@@ -14,6 +14,13 @@
 #include "../service/request/BoardRequestFormWrite.h"
 #include "../service/request/BoardRequestFormEdit.h"
 
+#include "request/RequestFindPostToEdit.h"
+#include "request/RequestToEdit.h"
+#include "request/RequestToWrite.h"
+#include "response/ResponseFoundPostForEdit.h"
+#include "response/ResponseList.h"
+#include "response/ResponseRead.h"
+
 class BoardController {
 private:
     std::shared_ptr<BoardService> boardService;
@@ -24,8 +31,9 @@ public:
 
     std::vector<Board> boardList();
     Board boardRead(int);
-    void boardWrite(BoardRequestFormWrite);
-    void boardEdit(BoardRequestFormEdit);
+    bool boardWrite(RequestToWrite);
+    void boardEdit(RequestToEdit);
+    ResponseFoundPostForEdit findPostToEdit(int);
     void boardRemove(int);
 };
 

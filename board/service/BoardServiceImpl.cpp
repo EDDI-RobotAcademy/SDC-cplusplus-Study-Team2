@@ -3,7 +3,6 @@
 //
 
 #include "BoardServiceImpl.h"
-#include "../adapter/BoardAdapter.h"
 
 #include <iostream>
 
@@ -42,3 +41,11 @@ void BoardServiceImpl::remove(int _boardUid) {
     std::cout << "BoardService: 게시물 삭제!" << std::endl;
     boardRepository->removePost(_boardUid);
 }
+
+ResponseFoundPostForEdit BoardServiceImpl::findPostToEdit(int boardId) {
+    std::cout << "BoardService: 게시물 찾기!" << std::endl;
+    Board board = boardRepository->findPost(boardId);
+    ResponseFoundPostForEdit response(board.getTitle(), board.getContent());
+    return response;
+}
+

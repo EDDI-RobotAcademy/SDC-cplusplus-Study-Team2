@@ -21,6 +21,7 @@ public:
     std::vector<Board> list() override;
     Board read(int) override;
     void write(BoardRequestFormWrite) override;
+    ResponseFoundPostForEdit findPostToEdit(int) override;
     void edit(BoardRequestFormEdit) override;
     void remove(int) override;
 };
