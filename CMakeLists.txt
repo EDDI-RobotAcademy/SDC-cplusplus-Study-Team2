@@ -43,8 +43,6 @@ add_executable(
         cpp_gtest
         ${CPP_SOURCES}
         ${MAIN_SOURCES}
-
-
 )
 
 target_include_directories(cpp_gtest PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})
