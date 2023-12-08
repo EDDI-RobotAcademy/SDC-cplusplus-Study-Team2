@@ -33,7 +33,7 @@ public:
     bool boardWrite(RequestToWrite);
     bool boardEdit(RequestToEdit);
     ResponseFoundPostForEdit findPostToEdit(int);
-    void boardRemove(int);
+    bool boardRemove(int);
 };
 
 

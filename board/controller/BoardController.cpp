@@ -48,10 +48,11 @@ bool BoardController::boardEdit(RequestToEdit _request) {
     return true;
 }
 
-void BoardController::boardRemove(int _boardUid) {
+bool BoardController::boardRemove(int _boardUid) {
     std::cout << "BoardController: 게시물 삭제!" << std::endl;
 
     boardService->remove(_boardUid);
+    return true;
 }
 
 
