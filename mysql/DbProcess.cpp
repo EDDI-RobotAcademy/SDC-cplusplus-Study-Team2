@@ -182,4 +182,3 @@ void DbProcess::readBoardData(int boardId) {
 MYSQL* DbProcess::getConn() {
     return conn;
 }
-

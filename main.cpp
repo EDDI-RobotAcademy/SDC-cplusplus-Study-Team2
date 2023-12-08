@@ -32,8 +32,8 @@ int main() {
     auto boardController = std::make_shared<BoardController>(boardService);
     boardManager = BoardManager(boardController);
 
-    boardManager.startBoard();
-    boardController->boardRead(boardManager.getBoardList()[0].getBoardUID());
+ /*   boardManager.startBoard();
+    boardController->boardRead(boardManager.getBoardList()[0].getBoardUID());*/
 
 
     RequestToWrite request("아아","이거","되냐");
