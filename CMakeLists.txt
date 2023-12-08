@@ -30,9 +30,12 @@ file(GLOB CPP_SOURCES
         "ui/console/user_keyboard/*.cpp"
         "ui/console/window/*.cpp"
         "ui/console/controller/*.cpp"
-)
-
-file(GLOB MAIN_SOURCES
+        "account/controller/*.cpp"
+        "account/entity/*.cpp"
+        "account/repository/*.cpp"
+        "account/service/*.cpp"
+        "account/service/request/*.cpp"
+        "account/service/response/*.cpp"
         "*.cpp"
 )
 
