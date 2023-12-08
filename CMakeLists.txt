@@ -16,6 +16,12 @@ link_directories(${LIBMYSQLCLIENT_LIBRARY_DIRS})
 
 file(GLOB CPP_SOURCES
         "mysql/*.cpp"
+        "account/controller/*.cpp"
+        "account/entity/*.cpp"
+        "account/repository/*.cpp"
+        "account/service/*.cpp"
+        "account/service/response/*.cpp"
+        "account/service/request/*.cpp"
         "board/controller/*.cpp"
         "board/controller/request/*.cpp"
         "board/controller/response/*.cpp"
