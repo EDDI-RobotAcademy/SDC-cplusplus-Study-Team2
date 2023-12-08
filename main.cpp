@@ -1,6 +1,11 @@
 #include <iostream>
 #include <memory>
 #include "board/controller/BoardController.h"
+#include "board/controller/request/RequestToEdit.h"
+#include "board/controller/request/RequestToWrite.h"
+#include "board/controller/response/ResponseFoundPostForEdit.h"
+#include "board/controller/response/ResponseRead.h"
+#include "board/controller/response/ResponseList.h"
 #include "board/entity/manager/BoardManager.h"
 #include "board/service/BoardServiceImpl.h"
 #include "board/repository/BoardRepository.h"
@@ -8,6 +13,8 @@
 
 #include "ui/console/window/console_window.h"
 #include "ui/console/service/ConsoleUiServiceImpl.h"
+
+
 
 int main() {
 
@@ -24,10 +31,10 @@ int main() {
     boardManager.startBoard();
     boardController->boardRead(boardManager.getBoardList()[0].getBoardUID());
 
-    BoardRequestFormWrite request("아아","이거","되냐");
+    RequestToWrite request("아아","이거","되냐");
     boardController->boardWrite(request);
     boardController->boardList();
-    BoardRequestFormEdit requestFormEdit(boardManager.getBoardList()[0].getBoardUID(),"이거도","되냐");
+    RequestToEdit requestFormEdit(boardManager.getBoardList()[0].getBoardUID(),"이거도","되냐");
     boardController->boardEdit(requestFormEdit);
     boardController->boardList();
     boardController->boardRemove(boardManager.getBoardList()[0].getBoardUID());
