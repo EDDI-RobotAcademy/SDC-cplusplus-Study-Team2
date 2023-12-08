@@ -20,6 +20,11 @@ public:
     void selectData();
     void readData(int boardId);
 
+
+    bool insertAccount(std::string accountId, std::string password);
+    bool checkAccount(std::string accountId, std::string password);
+    bool checkId(std::string accountId);
+
     MYSQL *getConn();
 
 private:

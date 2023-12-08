@@ -88,6 +88,62 @@ void DbProcess::readData(int boardId) {
     }
 }
 
+bool DbProcess::insertAccount(std::string accountId, std::string password) {
+    std::string insertQuery = "INSERT INTO account (account_id, password, reg_date, upd_date) VALUES \
+                               ('" + accountId + "', '" + password + "', now(6), now(6))";
+
+    return (mysql_query(conn, insertQuery.c_str()) == 0);
+}
+
+bool DbProcess::checkAccount(std::string accountId, std::string password) {
+    std::string checkQuery = "SELECT * FROM account where account_id = '" + accountId + "' and password = '" + password + "'";
+
+
+    if (mysql_query(conn, checkQuery.c_str()) == 0) {
+        MYSQL_RES* result = mysql_store_result(conn);
+        if ((mysql_fetch_row(result)) == nullptr) {
+            std::cout << "아이디 비밀번호 틀림" << std::endl;
+            return false;
+
+        }
+
+        if (result != nullptr) {
+            std::cout << "아이디 비밀번호 확인" << std::endl;
+            return true;
+        }
+
+        mysql_free_result(result);
+    } else {
+        std::cout << "mysql_query() failed" << std::endl;
+    }
+}
+
+
+
+bool DbProcess::checkId(std::string accountId) {
+    std::string checkQuery = "SELECT * FROM account where account_id = '" + accountId + "'";
+
+
+    if (mysql_query(conn, checkQuery.c_str()) == 0) {
+        MYSQL_RES* result = mysql_store_result(conn);
+        if ((mysql_fetch_row(result)) == nullptr) {
+            std::cout << "사용가능한 아이디" << std::endl;
+            return true;
+        }
+
+        if (result != nullptr) {
+            std::cout << "중복된 아이디 사용불가" << std::endl;
+            return false;
+        }
+
+        mysql_free_result(result);
+    } else {
+        std::cout << "mysql_query() failed" << std::endl;
+    }
+}
+
+
+
 MYSQL *DbProcess::getConn()
 {
     return conn;
