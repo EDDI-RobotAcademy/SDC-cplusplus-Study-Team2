@@ -32,7 +32,7 @@ void AccountRepositoryImpl::createAccount()
     int check_id = db.checkId(id);
     if(check_id == 1)
     {
-        db.insertAccount(id, pass);
+        db.insertAccountData(id, pass);
         std::cout << "회원가입 성공" << std::endl;
     }
     else if(check_id == 0) { std::cout << "회원가입 실패" << std::endl; }
@@ -66,9 +66,4 @@ void AccountRepositoryImpl::checkAccount()
     else if (check_Account == 1){
         std::cout << "로그인 성공" << std::endl;
     }
-
-
-
-
-
 }
