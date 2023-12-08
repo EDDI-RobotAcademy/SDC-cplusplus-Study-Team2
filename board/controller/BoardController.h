@@ -30,7 +30,7 @@ public:
     BoardController(std::shared_ptr<BoardService> boardService);
 
     std::vector<Board> boardList();
-    Board boardRead(int);
+    ResponseRead boardRead(int);
     bool boardWrite(RequestToWrite);
     bool boardEdit(RequestToEdit);
     ResponseFoundPostForEdit findPostToEdit(int);
