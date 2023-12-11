@@ -15,8 +15,6 @@ std::vector<ResponseList> BoardController::boardList()
 {
     std::cout << "BoardController: 게시물 리스트 출력!" << std::endl;
 
-    boardService->list();
-
     return boardService->list();
 }
 
