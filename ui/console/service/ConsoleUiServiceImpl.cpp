@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "ConsoleUiServiceImpl.h"
+#include "../user_keyboard/user_keyboard_input.h"
 
 ConsoleUiServiceImpl::ConsoleUiServiceImpl() {}
 
@@ -14,5 +15,16 @@ void ConsoleUiServiceImpl::makeUiPrint() {
     std::cout << "1. Login" << std::endl;
     std::cout << "2. Register" << std::endl;
     std::cout << "3. Exit" << std::endl;
-    consoleUiRepository->getSession();
+//    consoleUiRepository->getSession();
+}
+
+RequestToWrite *ConsoleUiServiceImpl::makeRequestToWriteForm() {
+    std::string title, writer, content;
+
+    get_user_keyboard_input_with_message("게시물 제목을 입력하세요: ", title);
+    // 입력 받는 것이 아닌 account 정보를 받는 것
+    get_user_keyboard_input_with_message("게시물 작성자를 입력하세요: ", writer);
+    get_user_keyboard_input_with_message("게시물 내용을 입력하세요: ", content);
+
+    return new RequestToWrite(title, writer, content);
 }

@@ -15,6 +15,7 @@
 #include "account/repository/AccountRepositoryImpl.h"
 
 #include "mysql/DbProcess.h"
+#include "ui/console/repository/ConsoleUiRepositoryImpl.h"
 #include "ui/console/service/ConsoleUiServiceImpl.h"
 #include "ui/console/controller/ConsoleUiController.h"
 
@@ -35,24 +36,21 @@ int main() {
     boardController->boardRead(boardManager.getBoardList()[0].getBoardUID());*/
 
 
-    RequestToWrite request("아아","이거","되냐");
-    boardController->boardWrite(request);
-
-
 //    const char* DB_HOST = "localhost";
 //    const char* DB_USER = "eddi";
 //    const char* DB_PASS = "eddi@123";
 //    const char* DB_NAME = "test_db";
 
-    auto accountRepository = std::make_shared<AccountRepositoryImpl>();
-    auto accountService = std::make_shared<AccountServiceImpl>(accountRepository);
-    auto accountController = std::make_shared<AccountController>(accountService);
-    accountController->accountRegister();
-    accountController->accountLogin();
+//    auto accountRepository = std::make_shared<AccountRepositoryImpl>();
+//    auto accountService = std::make_shared<AccountServiceImpl>(accountRepository);
+//    auto accountController = std::make_shared<AccountController>(accountService);
+//    accountController->accountRegister();
+//    accountController->accountLogin();
 
     auto consoleUiService = std::make_shared<ConsoleUiServiceImpl>();
     auto consoleUiController = std::make_shared<ConsoleUiController>(consoleUiService);
     consoleUiController->uiEngine();
+    consoleUiController->uiBoardWrite();
 /*    boardController->boardWrite(request);
 
     boardController->boardList();

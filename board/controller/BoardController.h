@@ -30,7 +30,7 @@ public:
 
     std::vector<ResponseList> boardList();
     ResponseRead boardRead(int);
-    bool boardWrite(RequestToWrite);
+    bool boardWrite(RequestToWrite*);
     bool boardEdit(RequestToEdit);
     ResponseFoundPostForEdit findPostToEdit(int);
     bool boardRemove(int);
