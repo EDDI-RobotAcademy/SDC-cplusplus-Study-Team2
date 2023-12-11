@@ -17,7 +17,8 @@ public:
     void makeUiAccountPrint() override;
     void makeUiBoardPrint() override;
 
-    AccountLoginRequestForm *makeAccountRequestForm() override;
+    AccountLoginRequestForm *makeAccountLoginRequestForm() override;
+    AccountRegisterRequestForm *makeAccountRegisterRequestForm() override;
 
     int makeRequestToReadForm() override;
     RequestToWrite *makeRequestToWriteForm() override;

@@ -20,8 +20,6 @@ bool isQuit = false;
 
 ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService) : consoleUiService(consoleUiService) {
     initTables();
-
-    std::cout << "연결됐다요" << std::endl;
 }
 
 
@@ -42,13 +40,13 @@ void ConsoleUiController::initTables(){
     consoleBoardCommandTable[BOARD_REMOVE] = [this] { uiBoardRemove(); };
     consoleBoardCommandTable[UI_BOARD_EXIT] = [this] { uiExit(); };
 
-    consoleAccountCommandTable[ACCOUNT_REGISTER] = [this]{uiAccountRegister();};
     consoleAccountCommandTable[LOG_IN] = [this]{uiAccountLogin();};
+    consoleAccountCommandTable[ACCOUNT_REGISTER] = [this]{uiAccountRegister();};
     consoleAccountCommandTable[UI_ACCOUNT_EXIT] = [this]{uiExit();};
 }
 
 void ConsoleUiController::uiAccountLogin() {
-    AccountLoginRequestForm *accountLoginRequestForm = consoleUiService->makeAccountRequestForm();
+    AccountLoginRequestForm *accountLoginRequestForm = consoleUiService->makeAccountLoginRequestForm();
     AccountLoginResponseForm *accountLoginResponseForm;
 
     auto accountRepository = std::make_shared<AccountRepositoryImpl>();
@@ -62,6 +60,23 @@ void ConsoleUiController::uiAccountLogin() {
     else{
         std::cout << "로그인에 성공했습니다." << std::endl;
         isLogin = true;
+    }
+}
+
+void ConsoleUiController::uiAccountRegister() {
+    AccountRegisterRequestForm *accountRegisterRequestForm = consoleUiService->makeAccountRegisterRequestForm();
+    AccountRegisterResponseForm *accountRegisterResponseForm;
+
+    auto accountRepository = std::make_shared<AccountRepositoryImpl>();
+    auto accountService = std::make_shared<AccountServiceImpl>(accountRepository);
+    auto accountController = std::make_shared<AccountController>(accountService);
+
+    accountRegisterResponseForm = accountController->accountRegister(accountRegisterRequestForm);
+    if (accountRegisterResponseForm->getRegisterSuccess() == false) {
+        std::cout << "다시 정보를 입력해주세요." << std::endl;
+    }
+    else if (accountRegisterResponseForm->getRegisterSuccess() == true) {
+        std::cout << "회원가입에 성공했습니다." << std::endl;
     }
 }
 
@@ -132,8 +147,4 @@ int ConsoleUiController::getUserCommandInput() {
     std::getline(std::cin, inputKey);
     // 입력 값을 정수로 변환
     return std::stoi(inputKey);
-}
-
-void ConsoleUiController::uiAccountRegister() {
-
 }
