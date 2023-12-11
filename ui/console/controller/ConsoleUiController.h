@@ -23,7 +23,7 @@ private:
     typedef std::function<void(void)> ConsoleBoardCommandType;
     ConsoleBoardCommandType consoleBoardCommandTable[NUM_BOARD_COMMANDS];
     typedef std::function<void(void)> ConsoleAccountCommandType;
-    ConsoleBoardCommandType consoleAccountCommandTable[NUM_ACCOUNT_COMMANDS];
+    ConsoleAccountCommandType consoleAccountCommandTable[NUM_ACCOUNT_COMMANDS];
     void initTables();
 public:
     ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService);
