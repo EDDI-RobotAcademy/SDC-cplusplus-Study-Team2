@@ -18,3 +18,11 @@ void Account::printAccountInfo() const {
               << ", Created At: " << std::chrono::system_clock::to_time_t(created_at)
               << ", Updated At: " << std::chrono::system_clock::to_time_t(updated_at) << std::endl;
 }
+
+std::string Account::getAccount_id() {
+    return account_id;
+}
+
+std::string Account::getPassword() {
+    return password;
+}

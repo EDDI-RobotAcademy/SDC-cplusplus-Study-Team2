@@ -7,12 +7,14 @@
 
 #include <vector>
 #include "response/AccountResponse.h"
+#include "request/AccountLoginRequest.h"
+
 
 class AccountService {
 public:
     virtual ~AccountService() = default;
     virtual std::vector<AccountResponse> regi() = 0;
-    virtual std::vector<AccountResponse> login() = 0;
+    virtual bool login(AccountLoginRequest *request) = 0;
 
 };
 

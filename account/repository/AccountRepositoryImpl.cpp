@@ -39,9 +39,8 @@ void AccountRepositoryImpl::createAccount()
 
 }
 
-void AccountRepositoryImpl::checkAccount()
+bool AccountRepositoryImpl::checkAccount(std::string account_id, std::string password)
 {
-    LoginAccount data = accountRequestLogin->getIdPw();
 
     std::cout << "AccountRepositoryImpl 아이디 비밀번호 체크" << std::endl;
 
@@ -58,12 +57,11 @@ void AccountRepositoryImpl::checkAccount()
         std::cerr << "Connection error" << std::endl;
     }
     // 로그인 실패하면 0 성공하면 1
-    int check_Account = db.checkAccount(data.account_id, data.password);
+    int check_Account = db.checkAccount(account_id, password);
 
-    if(check_Account == 0){
-        std::cout << "로그인 실패" << std::endl;
-    }
-    else if (check_Account == 1){
-        std::cout << "로그인 성공" << std::endl;
-    }
+    if(check_Account == 1) { std::cout << "로그인성공" << std::endl; }
+    if(check_Account == 0) { std::cout << "로그인실패" << std::endl; }
+
+    return check_Account;
+
 }
