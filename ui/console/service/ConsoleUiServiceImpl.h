@@ -22,6 +22,7 @@ public:
     void makeUiPrint() override;
 
     RequestToWrite *makeRequestToWriteForm() override;
+    RequestToEdit *makeRequestToEditForm() override;
 };
 
 

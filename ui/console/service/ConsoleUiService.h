@@ -6,6 +6,7 @@
 #define CPP_GTEST_CONSOLEUISERVICE_H
 
 #include "../../../board/controller/request/RequestToWrite.h"
+#include "../../../board/controller/request/RequestToEdit.h"
 
 class ConsoleUiService {
 public:
@@ -13,6 +14,7 @@ public:
     virtual void makeUiPrint() = 0;
 
     virtual RequestToWrite *makeRequestToWriteForm() = 0;
+    virtual RequestToEdit *makeRequestToEditForm() = 0;
 };
 
 #endif //CPP_GTEST_CONSOLEUISERVICE_H

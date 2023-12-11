@@ -28,3 +28,13 @@ RequestToWrite *ConsoleUiServiceImpl::makeRequestToWriteForm() {
 
     return new RequestToWrite(title, writer, content);
 }
+
+RequestToEdit *ConsoleUiServiceImpl::makeRequestToEditForm() {
+    std::string uid, title, content;
+
+    get_user_keyboard_input_with_message("수정할 게시물 번호를 입력하세요: ", uid);
+    get_user_keyboard_input_with_message("수정할 제목을 입력하세요: ", title);
+    get_user_keyboard_input_with_message("수정할 내용을 입력하세요: ", content);
+
+    return new RequestToEdit(stoi(uid), title, content);
+}

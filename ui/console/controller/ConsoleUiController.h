@@ -23,6 +23,7 @@ public:
 //    void uiAccountExit();
 
     void uiBoardWrite();
+    void uiBoardEdit();
 
     void uiEngine();
 
