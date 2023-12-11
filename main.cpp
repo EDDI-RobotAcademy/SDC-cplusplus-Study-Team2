@@ -15,7 +15,6 @@
 #include "account/repository/AccountRepositoryImpl.h"
 
 #include "mysql/DbProcess.h"
-#include "ui/console/repository/ConsoleUiRepositoryImpl.h"
 #include "ui/console/service/ConsoleUiServiceImpl.h"
 #include "ui/console/controller/ConsoleUiController.h"
 
@@ -47,6 +46,7 @@ int main() {
     auto consoleUiService = std::make_shared<ConsoleUiServiceImpl>();
     auto consoleUiController = std::make_shared<ConsoleUiController>(consoleUiService);
     consoleUiController->uiEngine();
+    consoleUiController->uiAccountLogin();
   //  consoleUiController->uiBoardWrite();
    // consoleUiController->uiBoardEdit();
 /*    boardController->boardWrite(request);

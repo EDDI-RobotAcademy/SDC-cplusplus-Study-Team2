@@ -23,7 +23,7 @@ private:
 public:
     ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService);
 
-//    void uiAccountLogin();
+    void uiAccountLogin();
 //    void uiAccountRegister();
 //    void uiAccountExit();
 

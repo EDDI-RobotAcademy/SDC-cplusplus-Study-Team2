@@ -8,8 +8,6 @@
 
 ConsoleUiServiceImpl::ConsoleUiServiceImpl() {}
 
-ConsoleUiServiceImpl::ConsoleUiServiceImpl(std::shared_ptr<ConsoleUiRepository> consoleUiRepository) : consoleUiRepository(consoleUiRepository) {}
-
 void ConsoleUiServiceImpl::makeUiAccountPrint() {
     std::cout << "ConsoleUiService: AccountCommandUi" << std::endl;
     std::cout << "1. Login" << std::endl;
@@ -20,6 +18,15 @@ void ConsoleUiServiceImpl::makeUiAccountPrint() {
 
 void ConsoleUiServiceImpl::makeUiBoardPrint() {
     std::cout << "ConsoleUiService: BoardCommandUi" << std::endl;
+}
+
+AccountLoginRequestForm *ConsoleUiServiceImpl::makeAccountRequestForm() {
+    std::string id, pw;
+
+    get_user_keyboard_input_with_message("사용자 아이디를 입력하세요: ", id);
+    get_user_keyboard_input_with_message("사용자 비밀번호를 입력하세요: ", pw);
+
+    return new AccountLoginRequestForm(id, pw);
 }
 
 int ConsoleUiServiceImpl::makeRequestToReadForm() {

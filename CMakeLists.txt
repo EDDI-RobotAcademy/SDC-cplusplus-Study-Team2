@@ -46,9 +46,6 @@ add_executable(
         ui/console/service/ConsoleUiServiceImpl.cpp
         ui/console/service/ConsoleUiServiceImpl.h
         ui/console/service/ConsoleUiService.h
-        ui/console/repository/ConsoleUiRepositoryImpl.cpp
-        ui/console/repository/ConsoleUiRepositoryImpl.h
-        ui/console/repository/ConsoleUiRepository.h
         account/controller/request/AccountLoginRequestForm.cpp
         account/controller/request/AccountLoginRequestForm.h
         account/controller/response/AccountLoginResponseForm.cpp

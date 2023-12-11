@@ -8,19 +8,16 @@
 #include <memory>
 
 #include "ConsoleUiService.h"
-#include "../repository/ConsoleUiRepository.h"
 
 class ConsoleUiServiceImpl : public ConsoleUiService {
 
-private:
-    std::shared_ptr<ConsoleUiRepository> consoleUiRepository;
-
 public:
     ConsoleUiServiceImpl();
-    ConsoleUiServiceImpl(std::shared_ptr<ConsoleUiRepository> consoleUiRepository);
 
     void makeUiAccountPrint() override;
     void makeUiBoardPrint() override;
+
+    AccountLoginRequestForm *makeAccountRequestForm() override;
 
     int makeRequestToReadForm() override;
     RequestToWrite *makeRequestToWriteForm() override;
