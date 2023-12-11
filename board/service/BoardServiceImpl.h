@@ -24,6 +24,7 @@ public:
     ResponseFoundPostForEdit findPostToEdit(int) override;
     void edit(BoardRequestFormEdit) override;
     void remove(int) override;
+    void update() override;
 };
 
 

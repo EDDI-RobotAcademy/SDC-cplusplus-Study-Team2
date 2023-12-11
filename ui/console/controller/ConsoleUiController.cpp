@@ -24,8 +24,8 @@ ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> conso
 
 
 void ConsoleUiController::uiEngine() {
-    std::cout << "ConsoleUiController: uiEngine" << std::endl;
-    boardManager.startBoard();
+ //   std::cout << "ConsoleUiController: uiEngine" << std::endl;
+
     startApplication();
   //  consoleUiService->makeUiAccountPrint();
 
@@ -34,6 +34,7 @@ void ConsoleUiController::uiEngine() {
 }
 
 void ConsoleUiController::initTables(){
+    consoleBoardCommandTable[BOARD_LIST] = [this]{ uiBoardList(); };
     consoleBoardCommandTable[BOARD_READ] = [this] { uiBoardRead(); };
     consoleBoardCommandTable[BOARD_WRITE] = [this] { uiBoardWrite(); };
     consoleBoardCommandTable[BOARD_EDIT] = [this] { uiBoardEdit(); };
@@ -72,10 +73,10 @@ void ConsoleUiController::uiAccountRegister() {
     auto accountController = std::make_shared<AccountController>(accountService);
 
     accountRegisterResponseForm = accountController->accountRegister(accountRegisterRequestForm);
-    if (accountRegisterResponseForm->getRegisterSuccess() == false) {
+    if (!accountRegisterResponseForm->getRegisterSuccess()) {
         std::cout << "다시 정보를 입력해주세요." << std::endl;
     }
-    else if (accountRegisterResponseForm->getRegisterSuccess() == true) {
+    else {
         std::cout << "회원가입에 성공했습니다." << std::endl;
     }
 }
@@ -133,6 +134,7 @@ void ConsoleUiController::startApplication(){
         consoleAccountCommandTable[getUserCommandInput()]();
     }
     while (!isQuit){
+        boardManager.startBoard();
         consoleUiService->makeUiBoardPrint();
         consoleBoardCommandTable[getUserCommandInput()]();
 
@@ -147,4 +149,13 @@ int ConsoleUiController::getUserCommandInput() {
     std::getline(std::cin, inputKey);
     // 입력 값을 정수로 변환
     return std::stoi(inputKey);
+}
+
+void ConsoleUiController::uiBoardList() {
+    auto boardRepository = std::make_shared<BoardRepositoryImpl>();
+    auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
+    auto boardController = std::make_shared<BoardController>(boardService);
+    auto response = boardController->boardList();
+
+    // response 를 이용해서 출력기능 제작
 }

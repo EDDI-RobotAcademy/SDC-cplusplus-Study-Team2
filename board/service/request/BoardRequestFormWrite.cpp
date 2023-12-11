@@ -18,7 +18,7 @@ BoardRequestFormWrite::BoardRequestFormWrite(std::string _title,  std::string _w
 
 
 BoardRequestFormWrite::~BoardRequestFormWrite() {
-    std::cout << "작성 요청 다 했으니 꺼져!" << std::endl;
+   // std::cout << "작성 요청 다 했으니 꺼져!" << std::endl;
 }
 
 Board BoardRequestFormWrite::requestToBoardForDB() {

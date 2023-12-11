@@ -30,7 +30,7 @@ public:
 
     void uiAccountLogin();
     void uiAccountRegister();
-
+    void uiBoardList();
     void uiBoardRead();
     void uiBoardWrite();
     void uiBoardEdit();
@@ -42,6 +42,7 @@ public:
 
     using CommandFunction = void (*)(ConsoleUiController*, void*);
     std::vector<CommandFunction> commandTable;
+
 
 };
 

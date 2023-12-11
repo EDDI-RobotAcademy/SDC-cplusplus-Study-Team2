@@ -8,12 +8,12 @@
 
 BoardRequestFormEdit::BoardRequestFormEdit(int _boardUid, std::string _title, std::string _content) :
             boardUid(_boardUid), title(_title), content(_content) {
-    std::cout << "야호 수정한다요" << std::endl;
+  //  std::cout << "야호 수정한다요" << std::endl;
 }
 
 
 BoardRequestFormEdit::~BoardRequestFormEdit() {
-    std::cout << "수정 요청 다 했으니 꺼져!" << std::endl;
+  //  std::cout << "수정 요청 다 했으니 꺼져!" << std::endl;
 }
 
 std::string BoardRequestFormEdit::getTitle() {

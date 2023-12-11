@@ -9,7 +9,7 @@
 ConsoleUiServiceImpl::ConsoleUiServiceImpl() {}
 
 void ConsoleUiServiceImpl::makeUiAccountPrint() {
-    std::cout << "ConsoleUiService: AccountCommandUi" << std::endl;
+  //  std::cout << "ConsoleUiService: AccountCommandUi" << std::endl;
     std::cout << "0. 로그인" << std::endl;
     std::cout << "1. 회원가입" << std::endl;
     std::cout << "2. 종료" << std::endl;
@@ -17,7 +17,7 @@ void ConsoleUiServiceImpl::makeUiAccountPrint() {
 }
 
 void ConsoleUiServiceImpl::makeUiBoardPrint() {
-    std::cout << "ConsoleUiService: BoardCommandUi" << std::endl;
+ //   std::cout << "ConsoleUiService: BoardCommandUi" << std::endl;
     std::cout << "0. 리스트 출력" << std::endl;
     std::cout << "1. 게시물 작성" << std::endl;
     std::cout << "2. 게시물 조회" << std::endl;
