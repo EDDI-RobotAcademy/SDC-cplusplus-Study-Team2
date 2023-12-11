@@ -41,10 +41,10 @@ ResponseFoundPostForEdit BoardController::findPostToEdit(int boardUid) {
 }
 
 
-bool BoardController::boardEdit(RequestToEdit _request) {
+bool BoardController::boardEdit(RequestToEdit *_request) {
 
     std::cout << "BoardController: 게시물 수정!" << std::endl;
-    boardService->edit(_request.requestForService());
+    boardService->edit(_request->requestForService());
     return true;
 }
 

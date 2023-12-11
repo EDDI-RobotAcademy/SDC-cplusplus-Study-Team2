@@ -27,3 +27,13 @@ void ConsoleUiController::uiBoardWrite() {
     auto boardController = std::make_shared<BoardController>(boardService);
     boardController->boardWrite(requestToWrite);
 }
+
+void ConsoleUiController::uiBoardEdit() {
+    RequestToEdit *requestToEdit;
+    requestToEdit = consoleUiService->makeRequestToEditForm();
+
+    auto boardRepository = std::make_shared<BoardRepositoryImpl>();
+    auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
+    auto boardController = std::make_shared<BoardController>(boardService);
+    boardController->boardEdit(requestToEdit);
+}
