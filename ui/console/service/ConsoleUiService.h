@@ -15,6 +15,7 @@ public:
 
     virtual RequestToWrite *makeRequestToWriteForm() = 0;
     virtual RequestToEdit *makeRequestToEditForm() = 0;
+    virtual int makeRequestToDeleteForm() = 0;
 };
 
 #endif //CPP_GTEST_CONSOLEUISERVICE_H

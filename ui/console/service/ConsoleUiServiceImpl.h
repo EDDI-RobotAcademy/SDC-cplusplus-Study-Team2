@@ -23,6 +23,7 @@ public:
 
     RequestToWrite *makeRequestToWriteForm() override;
     RequestToEdit *makeRequestToEditForm() override;
+    int makeRequestToDeleteForm() override;
 };
 
 

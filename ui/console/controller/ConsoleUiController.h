@@ -29,6 +29,7 @@ public:
 
     void uiBoardWrite();
     void uiBoardEdit();
+    void uiBoardRemove();
 
     void uiEngine();
 
