@@ -18,6 +18,15 @@ void ConsoleUiServiceImpl::makeUiPrint() {
 //    consoleUiRepository->getSession();
 }
 
+int ConsoleUiServiceImpl::makeRequestToReadForm() {
+    std::string boardUid;
+
+    get_user_keyboard_input_with_message("조회할 게시물 번호를 입력하세요: ", boardUid);
+    int boardNo = std::stoi(boardUid);
+
+    return boardNo;
+}
+
 RequestToWrite *ConsoleUiServiceImpl::makeRequestToWriteForm() {
     std::string title, writer, content;
 
@@ -27,4 +36,23 @@ RequestToWrite *ConsoleUiServiceImpl::makeRequestToWriteForm() {
     get_user_keyboard_input_with_message("게시물 내용을 입력하세요: ", content);
 
     return new RequestToWrite(title, writer, content);
+}
+
+RequestToEdit *ConsoleUiServiceImpl::makeRequestToEditForm() {
+    std::string uid, title, content;
+
+    get_user_keyboard_input_with_message("수정할 게시물 번호를 입력하세요: ", uid);
+    get_user_keyboard_input_with_message("수정할 제목을 입력하세요: ", title);
+    get_user_keyboard_input_with_message("수정할 내용을 입력하세요: ", content);
+
+    return new RequestToEdit(stoi(uid), title, content);
+}
+
+int ConsoleUiServiceImpl::makeRequestToDeleteForm() {
+    std::string boardUid;
+
+    get_user_keyboard_input_with_message("삭제할 게시물 번호를 입력하세요: ", boardUid);
+    int boardNo = std::stoi(boardUid);
+
+    return boardNo;
 }

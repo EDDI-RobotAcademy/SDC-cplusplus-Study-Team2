@@ -9,13 +9,22 @@ enum class ConsoleUiControllerCommand {
     ACCOUNT_REGISTER,
     SIGN_IN,
     SIGN_OUT,
-    BOARD_LIST,
-    BOARD_WRITE,
-    BOARD_READ,
-    BOARD_EDIT,
-    BOARD_REMOVE,
+    //BOARD_LIST,
+   // BOARD_WRITE,
+   // BOARD_READ,
+   // BOARD_EDIT,
+    //BOARD_REMOVE,
     UI_EXIT,
     UI_COMMAND_END
+};
+
+enum ConsoleBoardCommand{
+BOARD_LIST = 0,
+BOARD_WRITE,
+BOARD_READ,
+BOARD_EDIT,
+BOARD_REMOVE,
+NUM_BOARD_COMMANDS,
 };
 
 #endif //CPP_GTEST_CONSOLEUICONTROLLERCOMMAND_H

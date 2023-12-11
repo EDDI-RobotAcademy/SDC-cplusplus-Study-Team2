@@ -29,9 +29,9 @@ public:
     BoardController(std::shared_ptr<BoardService> boardService);
 
     std::vector<ResponseList> boardList();
-    ResponseRead boardRead(int);
+    ResponseRead *boardRead(int);
     bool boardWrite(RequestToWrite*);
-    bool boardEdit(RequestToEdit);
+    bool boardEdit(RequestToEdit*);
     ResponseFoundPostForEdit findPostToEdit(int);
     bool boardRemove(int);
 };

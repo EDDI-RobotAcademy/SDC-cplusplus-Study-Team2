@@ -7,13 +7,18 @@
 
 #include <memory>
 #include <vector>
+#include <functional>
 
 #include "../service/ConsoleUiService.h"
+#include "ConsoleUiControllerCommand.h"
 
 class ConsoleUiController {
 
 private:
     std::shared_ptr<ConsoleUiService> consoleUiService;
+
+    typedef std::function<void(void)> ConsoleBoardCommandType;
+    ConsoleBoardCommandType consoleBoardCommandTable[NUM_BOARD_COMMANDS];
 
 public:
     ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService);
@@ -22,7 +27,10 @@ public:
 //    void uiAccountRegister();
 //    void uiAccountExit();
 
+    void uiBoardRead();
     void uiBoardWrite();
+    void uiBoardEdit();
+    void uiBoardRemove();
 
     void uiEngine();
 

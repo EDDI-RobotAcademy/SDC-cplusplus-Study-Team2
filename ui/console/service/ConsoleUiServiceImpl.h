@@ -21,7 +21,10 @@ public:
 
     void makeUiPrint() override;
 
+    int makeRequestToReadForm() override;
     RequestToWrite *makeRequestToWriteForm() override;
+    RequestToEdit *makeRequestToEditForm() override;
+    int makeRequestToDeleteForm() override;
 };
 
 
