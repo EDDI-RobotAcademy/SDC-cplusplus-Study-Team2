@@ -11,11 +11,26 @@
 #include "../../../board/repository/BoardRepository.h"
 #include "../../../board/repository/BoardRepositoryImpl.h"
 
-ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService) : consoleUiService(consoleUiService) {}
+ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService) : consoleUiService(consoleUiService) {
+
+    consoleBoardCommandTable[BOARD_WRITE] = [this] { uiBoardWrite(); };
+    consoleBoardCommandTable[BOARD_EDIT] = [this] { uiBoardEdit(); };
+    std::cout << "연결됐다요" << std::endl;
+}
 
 void ConsoleUiController::uiEngine() {
     std::cout << "ConsoleUiController: uiEngine" << std::endl;
     consoleUiService->makeUiPrint();
+
+    // 사용자에게 입력 받기
+    std::cout << "Enter a number (0-4): ";
+    std::string input;
+    std::getline(std::cin, input);
+
+    // 입력 값을 정수로 변환
+    int choice = std::stoi(input);
+
+    consoleBoardCommandTable[choice]();
 }
 
 void ConsoleUiController::uiBoardWrite() {
