@@ -10,14 +10,21 @@ ConsoleUiServiceImpl::ConsoleUiServiceImpl() {}
 
 void ConsoleUiServiceImpl::makeUiAccountPrint() {
     std::cout << "ConsoleUiService: AccountCommandUi" << std::endl;
-    std::cout << "0. Login" << std::endl;
-    std::cout << "1. Register" << std::endl;
-    std::cout << "2. Exit" << std::endl;
-//    consoleUiRepository->getSession();
+    std::cout << "0. 로그인" << std::endl;
+    std::cout << "1. 회원가입" << std::endl;
+    std::cout << "2. 종료" << std::endl;
+    std::cout << "어떤 작업을 수행하시겠습니까?" << std::endl;
 }
 
 void ConsoleUiServiceImpl::makeUiBoardPrint() {
     std::cout << "ConsoleUiService: BoardCommandUi" << std::endl;
+    std::cout << "0. 리스트 출력" << std::endl;
+    std::cout << "1. 게시물 작성" << std::endl;
+    std::cout << "2. 게시물 조회" << std::endl;
+    std::cout << "3. 게시물 수정" << std::endl;
+    std::cout << "4. 게시물 삭제" << std::endl;
+    std::cout << "5. 종료" << std::endl;
+    std::cout << "어떤 작업을 수행하시겠습니까?" << std::endl;
 }
 
 AccountLoginRequestForm *ConsoleUiServiceImpl::makeAccountLoginRequestForm() {
