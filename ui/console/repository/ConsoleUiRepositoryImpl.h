@@ -12,7 +12,6 @@
 class ConsoleUiRepositoryImpl : public ConsoleUiRepository {
 public:
     void getSession() override;
-
 };
 
 

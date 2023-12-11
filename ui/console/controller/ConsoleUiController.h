@@ -22,6 +22,8 @@ public:
 //    void uiAccountRegister();
 //    void uiAccountExit();
 
+    void uiBoardWrite();
+
     void uiEngine();
 
     using CommandFunction = void (*)(ConsoleUiController*, void*);

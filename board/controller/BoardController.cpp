@@ -26,11 +26,11 @@ ResponseRead BoardController::boardRead(int _boardUid) {
     return boardService->read(_boardUid);
 }
 
-bool BoardController::boardWrite(RequestToWrite _request) {
+bool BoardController::boardWrite(RequestToWrite *_request) {
 
     std::cout << "BoardController: 게시물 작성!" << std::endl;
 
-    boardService->write(_request.requestForService());
+    boardService->write(_request->requestForService());
     return true;
 
 }
