@@ -1,31 +1,26 @@
 //
-// Created by eddi on 23. 12. 4.
+// Created by eddi on 23. 12. 8.
 //
 
+#ifndef CPP_GTEST_CONSOLEUISERVICEIMPL_H
+#define CPP_GTEST_CONSOLEUISERVICEIMPL_H
 
-#ifndef CLASS_TEST_CONSOLEUISERVICEIMPL_H
-#define CLASS_TEST_CONSOLEUISERVICEIMPL_H
+#include <memory>
 
-#include <string>
-#include <vector>
 #include "ConsoleUiService.h"
-#include "../../../board/entity/Board.h"
+#include "../repository/ConsoleUiRepository.h"
 
 class ConsoleUiServiceImpl : public ConsoleUiService {
+
+private:
+    std::shared_ptr<ConsoleUiRepository> consoleUiRepository;
+
 public:
     ConsoleUiServiceImpl();
-    Board *creatPost();
-    void postExit ();
-    void postList ();
-    void postModify ();
-    void postRead ();
-    void postRemove ();
+    ConsoleUiServiceImpl(std::shared_ptr<ConsoleUiRepository> consoleUiRepository);
 
-    ~ConsoleUiServiceImpl();
-
-    std::string writer;
-    std::string content;
-    std::string title;
+    void makeUiPrint() override;
 };
 
-#endif //CLASS_TEST_CONSOLEUISERVICEIMPL_H
+
+#endif //CPP_GTEST_CONSOLEUISERVICEIMPL_H

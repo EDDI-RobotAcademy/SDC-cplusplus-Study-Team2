@@ -1,25 +1,33 @@
-/*
 //
-// Created by junghwan on 23. 12. 6.
+// Created by eddi on 23. 12. 8.
 //
 
-#ifndef CLASS_TEST_CONSOLEUICONTROLLER_H
-#define CLASS_TEST_CONSOLEUICONTROLLER_H
+#ifndef CPP_GTEST_CONSOLEUICONTROLLER_H
+#define CPP_GTEST_CONSOLEUICONTROLLER_H
 
+#include <memory>
+#include <vector>
+
+#include "../service/ConsoleUiService.h"
 
 class ConsoleUiController {
+
 private:
-    ConsoleUiController postCreate;7
-    //BoardService* boardService;
+    std::shared_ptr<ConsoleUiService> consoleUiService;
 
 public:
-    BoardController(std::shared_ptr<BoardService> boardService);
+    ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService);
 
-    std::vector<Board> boardList();
-    Board boardRead(int);
-    void boardWrite(BoardRequestFormWrite);
+//    void uiAccountLogin();
+//    void uiAccountRegister();
+//    void uiAccountExit();
+
+    void uiEngine();
+
+    using CommandFunction = void (*)(ConsoleUiController*, void*);
+    std::vector<CommandFunction> commandTable;
+
 };
 
 
-#endif //CLASS_TEST_CONSOLEUICONTROLLER_H
-*/
+#endif //CPP_GTEST_CONSOLEUICONTROLLER_H

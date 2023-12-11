@@ -1,18 +1,13 @@
-/*
 //
-// Created by junghwan on 23. 12. 6.
+// Created by eddi on 23. 12. 8.
 //
+#include <iostream>
 
 #include "ConsoleUiController.h"
 
-ConsoleUiController::ConsoleUiController(std::shared_ptr<BoardService> boardService) : boardService(boardService) { }
+ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService) : consoleUiService(consoleUiService) {}
 
-std::vector<Board> BoardController::boardList()
-{
-    std::cout << "BoardController: 게시물 리스트 출력!" << std::endl;
-
-    //boardService->list();
-
-    return boardService->list();
+void ConsoleUiController::uiEngine() {
+    std::cout << "ConsoleUiController: uiEngine" << std::endl;
+    consoleUiService->makeUiPrint();
 }
-*/
