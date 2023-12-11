@@ -7,13 +7,18 @@
 
 AccountServiceImpl::AccountServiceImpl(std::shared_ptr<AccountRepository> accountRepository) : accountRepository(accountRepository) { }
 
-std::vector<AccountResponse> AccountServiceImpl::regi()
+bool AccountServiceImpl::regi(AccountRegisterRequest *request)
 {
     std::cout << "회원가입" << std::endl;
+    bool isRegisterSuccess = accountRepository->createAccount(request->toAccount());
 
-    accountRepository->createAccount();
+    if(isRegisterSuccess == false) { std::cout << "회원가입 실패" << std::endl; }
+    if(isRegisterSuccess == true) { std::cout << "회원가입 성공" << std::endl; }
 
-    return std::vector<AccountResponse>();
+
+
+    return isRegisterSuccess;
+
 }
 
 bool AccountServiceImpl::login(AccountLoginRequest *request)

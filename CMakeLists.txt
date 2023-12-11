@@ -54,6 +54,14 @@ add_executable(
         account/service/request/AccountLoginRequest.h
         account/service/response/AccountLoginResponse.cpp
         account/service/response/AccountLoginResponse.h
+        account/controller/request/AccountRegisterRequestForm.cpp
+        account/controller/request/AccountRegisterRequestForm.h
+        account/controller/response/AccountRegisterResponseForm.cpp
+        account/controller/response/AccountRegisterResponseForm.h
+        account/service/request/AccountRegisterRequest.cpp
+        account/service/request/AccountRegisterRequest.h
+        account/service/response/AccountRegisterResponse.cpp
+        account/service/response/AccountRegisterResponse.h
 )
 
 target_include_directories(cpp_gtest PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})

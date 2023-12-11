@@ -11,6 +11,8 @@
 #include "../service/AccountService.h"
 #include "response/AccountLoginResponseForm.h"
 #include "request/AccountLoginRequestForm.h"
+#include "response/AccountRegisterResponseForm.h"
+#include "request/AccountRegisterRequestForm.h"
 
 class AccountController {
 private:
@@ -19,7 +21,7 @@ private:
 public:
     AccountController(std::shared_ptr<AccountService> accountService);
 
-    std::vector<AccountResponse> accountRegister();
+    AccountRegisterResponseForm *accountRegister(AccountRegisterRequestForm *requestForm);
     AccountLoginResponseForm *accountLogin(AccountLoginRequestForm *requestForm);
 
 };

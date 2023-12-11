@@ -12,7 +12,7 @@
 class AccountRepository {
 public:
     virtual ~AccountRepository() = default;
-    virtual void createAccount() = 0;
+    virtual bool createAccount(Account *account) = 0;
     virtual bool checkAccount(std::string account_id, std::string password) = 0;
 
 
