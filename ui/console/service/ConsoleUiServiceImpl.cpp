@@ -10,12 +10,16 @@ ConsoleUiServiceImpl::ConsoleUiServiceImpl() {}
 
 ConsoleUiServiceImpl::ConsoleUiServiceImpl(std::shared_ptr<ConsoleUiRepository> consoleUiRepository) : consoleUiRepository(consoleUiRepository) {}
 
-void ConsoleUiServiceImpl::makeUiPrint() {
-    std::cout << "ConsoleUiService: makeUiPrint" << std::endl;
+void ConsoleUiServiceImpl::makeUiAccountPrint() {
+    std::cout << "ConsoleUiService: AccountCommandUi" << std::endl;
     std::cout << "1. Login" << std::endl;
     std::cout << "2. Register" << std::endl;
     std::cout << "3. Exit" << std::endl;
 //    consoleUiRepository->getSession();
+}
+
+void ConsoleUiServiceImpl::makeUiBoardPrint() {
+    std::cout << "ConsoleUiService: BoardCommandUi" << std::endl;
 }
 
 int ConsoleUiServiceImpl::makeRequestToReadForm() {

@@ -65,13 +65,13 @@ std::vector<Board> BoardRepositoryImpl::findAll()
     if (!db.connect()) {
         std::cerr << "Connection error" << std::endl;
     }
-    std::cout << "여기냐1" << std::endl;
+
     std::vector<Board> boardList = fetchResults(db.getConn());
-    std::cout << "여기냐2" << std::endl;
+
     for (const auto& board : boardList) {
         board.printBoardInfo();
     }
-    std::cout << "여기냐3" << std::endl;
+    
     return boardList;
 }
 

@@ -19,7 +19,8 @@ public:
     ConsoleUiServiceImpl();
     ConsoleUiServiceImpl(std::shared_ptr<ConsoleUiRepository> consoleUiRepository);
 
-    void makeUiPrint() override;
+    void makeUiAccountPrint() override;
+    void makeUiBoardPrint() override;
 
     int makeRequestToReadForm() override;
     RequestToWrite *makeRequestToWriteForm() override;

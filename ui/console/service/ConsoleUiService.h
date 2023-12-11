@@ -11,7 +11,9 @@
 class ConsoleUiService {
 public:
     virtual ~ConsoleUiService() = default;
-    virtual void makeUiPrint() = 0;
+
+    virtual void makeUiAccountPrint() = 0;
+    virtual void makeUiBoardPrint() = 0;
 
     virtual int makeRequestToReadForm() = 0;
     virtual RequestToWrite *makeRequestToWriteForm() = 0;

@@ -24,9 +24,10 @@ ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> conso
 void ConsoleUiController::uiEngine() {
     std::cout << "ConsoleUiController: uiEngine" << std::endl;
     boardManager.startBoard();
-    consoleUiService->makeUiPrint();
+    consoleUiService->makeUiAccountPrint();
 
     // 사용자에게 입력 받기
+    consoleUiService->makeUiBoardPrint();
     std::cout << "Enter a number (0-4): ";
     std::string input;
     std::getline(std::cin, input);

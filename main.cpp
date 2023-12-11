@@ -27,10 +27,10 @@ int main() {
 //    BoardService* boardService = new BoardServiceImpl();
 // make::shared : 공유 포인터 선언
 // 다른곳에서 헤더참조만 하면 언제든 사용 할 수 있음
-    auto boardRepository = std::make_shared<BoardRepositoryImpl>();
-    auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
-    auto boardController = std::make_shared<BoardController>(boardService);
-    boardManager = BoardManager(boardController);
+//    auto boardRepository = std::make_shared<BoardRepositoryImpl>();
+//    auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
+//    auto boardController = std::make_shared<BoardController>(boardService);
+//    boardManager = BoardManager(boardController);
 
 
 //    const char* DB_HOST = "localhost";
