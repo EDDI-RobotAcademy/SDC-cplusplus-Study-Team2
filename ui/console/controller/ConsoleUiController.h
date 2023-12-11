@@ -12,33 +12,40 @@
 #include "../service/ConsoleUiService.h"
 #include "ConsoleUiControllerCommand.h"
 
+
+
 class ConsoleUiController {
 
 private:
     std::shared_ptr<ConsoleUiService> consoleUiService;
-
+    void startApplication();
+    int getUserCommandInput();
     typedef std::function<void(void)> ConsoleBoardCommandType;
     ConsoleBoardCommandType consoleBoardCommandTable[NUM_BOARD_COMMANDS];
-
+    typedef std::function<void(void)> ConsoleAccountCommandType;
+    ConsoleBoardCommandType consoleAccountCommandTable[NUM_ACCOUNT_COMMANDS];
+    void initTables();
 public:
     ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService);
 
     void uiAccountLogin();
-//    void uiAccountRegister();
-//    void uiAccountExit();
+    void uiAccountRegister();
 
     void uiBoardRead();
     void uiBoardWrite();
     void uiBoardEdit();
     void uiBoardRemove();
-    void uiBoardExit();
+    void uiExit();
 
     void uiEngine();
 
     using CommandFunction = void (*)(ConsoleUiController*, void*);
     std::vector<CommandFunction> commandTable;
 
+
 };
+extern bool isLogin;
+extern bool isQuit;
 
 
 #endif //CPP_GTEST_CONSOLEUICONTROLLER_H

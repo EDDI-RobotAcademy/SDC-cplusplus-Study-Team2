@@ -19,10 +19,11 @@
 //};
 
 enum ConsoleUiAccountCommand {
+    LOG_IN,
     ACCOUNT_REGISTER,
-    SIGN_IN,
+
     UI_ACCOUNT_EXIT,
-    NUM_ACCOUNT_COMMAND
+    NUM_ACCOUNT_COMMANDS
 };
 
 enum ConsoleBoardCommand{

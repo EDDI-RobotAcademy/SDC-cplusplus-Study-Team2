@@ -15,31 +15,36 @@
 #include "../../../account/service/AccountServiceImpl.h"
 #include "../../../account/repository/AccountRepositoryImpl.h"
 
-ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService) : consoleUiService(consoleUiService) {
+bool isLogin = false;
+bool isQuit = false;
 
-    consoleBoardCommandTable[BOARD_READ] = [this] { uiBoardRead(); };
-    consoleBoardCommandTable[BOARD_WRITE] = [this] { uiBoardWrite(); };
-    consoleBoardCommandTable[BOARD_EDIT] = [this] { uiBoardEdit(); };
-    consoleBoardCommandTable[BOARD_REMOVE] = [this] { uiBoardRemove(); };
-    consoleBoardCommandTable[UI_BOARD_EXIT] = [this] { uiBoardExit(); };
+ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService) : consoleUiService(consoleUiService) {
+    initTables();
+
     std::cout << "연결됐다요" << std::endl;
 }
+
 
 void ConsoleUiController::uiEngine() {
     std::cout << "ConsoleUiController: uiEngine" << std::endl;
     boardManager.startBoard();
-    consoleUiService->makeUiAccountPrint();
+    startApplication();
+  //  consoleUiService->makeUiAccountPrint();
 
-    // 사용자에게 입력 받기
-    consoleUiService->makeUiBoardPrint();
-    std::cout << "Enter a number (0-5): ";
-    std::string input;
-    std::getline(std::cin, input);
 
-    // 입력 값을 정수로 변환
-    int choice = std::stoi(input);
 
-    consoleBoardCommandTable[choice]();
+}
+
+void ConsoleUiController::initTables(){
+    consoleBoardCommandTable[BOARD_READ] = [this] { uiBoardRead(); };
+    consoleBoardCommandTable[BOARD_WRITE] = [this] { uiBoardWrite(); };
+    consoleBoardCommandTable[BOARD_EDIT] = [this] { uiBoardEdit(); };
+    consoleBoardCommandTable[BOARD_REMOVE] = [this] { uiBoardRemove(); };
+    consoleBoardCommandTable[UI_BOARD_EXIT] = [this] { uiExit(); };
+
+    consoleAccountCommandTable[ACCOUNT_REGISTER] = [this]{uiAccountRegister();};
+    consoleAccountCommandTable[LOG_IN] = [this]{uiAccountLogin();};
+    consoleAccountCommandTable[UI_ACCOUNT_EXIT] = [this]{uiExit();};
 }
 
 void ConsoleUiController::uiAccountLogin() {
@@ -51,11 +56,12 @@ void ConsoleUiController::uiAccountLogin() {
     auto accountController = std::make_shared<AccountController>(accountService);
 
     accountLoginResponseForm = accountController->accountLogin(accountLoginRequestForm);
-    if (accountLoginResponseForm->getLoginSuccess() == false) {
+    if (!accountLoginResponseForm->getLoginSuccess()) {
         std::cout << "등록된 회원 정보가 없습니다." << std::endl;
     }
-    else if (accountLoginResponseForm->getLoginSuccess() == true) {
+    else{
         std::cout << "로그인에 성공했습니다." << std::endl;
+        isLogin = true;
     }
 }
 
@@ -99,8 +105,35 @@ void ConsoleUiController::uiBoardRemove() {
     boardController->boardRemove(boardNo);
 }
 
-void ConsoleUiController::uiBoardExit() {
-    std::cout << "즉시 종료합니다. 사요나라." << std::endl;
 
+void ConsoleUiController::uiExit() {
+    std::cout << "즉시 종료합니다. 사요나라." << std::endl;
+    isQuit = true;
     exit(0);
+}
+
+void ConsoleUiController::startApplication(){
+    while (!isLogin && !isQuit){
+        consoleUiService->makeUiAccountPrint();
+        consoleAccountCommandTable[getUserCommandInput()]();
+    }
+    while (!isQuit){
+        consoleUiService->makeUiBoardPrint();
+        consoleBoardCommandTable[getUserCommandInput()]();
+
+    }
+}
+
+int ConsoleUiController::getUserCommandInput() {
+    // 사용자에게 입력 받기
+    //consoleUiService->makeUiBoardPrint();
+
+    std::string inputKey;
+    std::getline(std::cin, inputKey);
+    // 입력 값을 정수로 변환
+    return std::stoi(inputKey);
+}
+
+void ConsoleUiController::uiAccountRegister() {
+
 }
