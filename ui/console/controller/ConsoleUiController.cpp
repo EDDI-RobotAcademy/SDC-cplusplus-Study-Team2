@@ -21,6 +21,7 @@ ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> conso
     consoleBoardCommandTable[BOARD_WRITE] = [this] { uiBoardWrite(); };
     consoleBoardCommandTable[BOARD_EDIT] = [this] { uiBoardEdit(); };
     consoleBoardCommandTable[BOARD_REMOVE] = [this] { uiBoardRemove(); };
+    consoleBoardCommandTable[UI_BOARD_EXIT] = [this] { uiBoardExit(); };
     std::cout << "연결됐다요" << std::endl;
 }
 
@@ -31,7 +32,7 @@ void ConsoleUiController::uiEngine() {
 
     // 사용자에게 입력 받기
     consoleUiService->makeUiBoardPrint();
-    std::cout << "Enter a number (0-4): ";
+    std::cout << "Enter a number (0-5): ";
     std::string input;
     std::getline(std::cin, input);
 
@@ -43,11 +44,19 @@ void ConsoleUiController::uiEngine() {
 
 void ConsoleUiController::uiAccountLogin() {
     AccountLoginRequestForm *accountLoginRequestForm = consoleUiService->makeAccountRequestForm();
+    AccountLoginResponseForm *accountLoginResponseForm;
 
     auto accountRepository = std::make_shared<AccountRepositoryImpl>();
     auto accountService = std::make_shared<AccountServiceImpl>(accountRepository);
     auto accountController = std::make_shared<AccountController>(accountService);
-    accountController->accountLogin(accountLoginRequestForm);
+
+    accountLoginResponseForm = accountController->accountLogin(accountLoginRequestForm);
+    if (accountLoginResponseForm->getLoginSuccess() == false) {
+        std::cout << "등록된 회원 정보가 없습니다." << std::endl;
+    }
+    else if (accountLoginResponseForm->getLoginSuccess() == true) {
+        std::cout << "로그인에 성공했습니다." << std::endl;
+    }
 }
 
 void ConsoleUiController::uiBoardRead() {
@@ -88,4 +97,10 @@ void ConsoleUiController::uiBoardRemove() {
     auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
     auto boardController = std::make_shared<BoardController>(boardService);
     boardController->boardRemove(boardNo);
+}
+
+void ConsoleUiController::uiBoardExit() {
+    std::cout << "즉시 종료합니다. 사요나라." << std::endl;
+
+    exit(0);
 }
