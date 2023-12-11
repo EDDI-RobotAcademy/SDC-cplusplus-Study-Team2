@@ -32,10 +32,7 @@ file(GLOB CPP_SOURCES
         "board/service/response/*.cpp"
         "board/service/response/*.cpp"
         "board/service/request/*.cpp"
-        "ui/console/service/*.cpp"
         "ui/console/user_keyboard/*.cpp"
-        "ui/console/window/*.cpp"
-        "ui/console/controller/*.cpp"
         "*.cpp"
 )
 
@@ -43,6 +40,15 @@ add_executable(
         cpp_gtest
         ${CPP_SOURCES}
         ${MAIN_SOURCES}
+        ui/console/controller/ConsoleUiControllerCommand.h
+        ui/console/controller/ConsoleUiController.cpp
+        ui/console/controller/ConsoleUiController.h
+        ui/console/service/ConsoleUiServiceImpl.cpp
+        ui/console/service/ConsoleUiServiceImpl.h
+        ui/console/service/ConsoleUiService.h
+        ui/console/repository/ConsoleUiRepositoryImpl.cpp
+        ui/console/repository/ConsoleUiRepositoryImpl.h
+        ui/console/repository/ConsoleUiRepository.h
 )
 
 target_include_directories(cpp_gtest PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})

@@ -1,14 +1,14 @@
 //
-// Created by junghwan on 23. 12. 6.
+// Created by eddi on 23. 12. 8.
 //
 
-#ifndef CLASS_TEST_CONSOLEUIREPOSITORY_H
-#define CLASS_TEST_CONSOLEUIREPOSITORY_H
-
+#ifndef CPP_GTEST_CONSOLEUIREPOSITORY_H
+#define CPP_GTEST_CONSOLEUIREPOSITORY_H
 
 class ConsoleUiRepository {
-
+public:
+    virtual ~ConsoleUiRepository() = default;
+    virtual void getSession() = 0;
 };
 
-
-#endif //CLASS_TEST_CONSOLEUIREPOSITORY_H
+#endif //CPP_GTEST_CONSOLEUIREPOSITORY_H
