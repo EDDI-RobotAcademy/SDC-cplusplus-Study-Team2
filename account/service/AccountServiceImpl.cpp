@@ -23,9 +23,5 @@ bool AccountServiceImpl::regi(AccountRegisterRequest *request)
 
 bool AccountServiceImpl::login(AccountLoginRequest *request)
 {
-    std::cout << "로그인" << std::endl;
-
-
     return accountRepository->checkAccount(request->getAccountId(), request->getPassword());
-
 }
