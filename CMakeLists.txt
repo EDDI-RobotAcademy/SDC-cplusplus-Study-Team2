@@ -49,6 +49,14 @@ add_executable(
         ui/console/repository/ConsoleUiRepositoryImpl.cpp
         ui/console/repository/ConsoleUiRepositoryImpl.h
         ui/console/repository/ConsoleUiRepository.h
+        account/controller/request/AccountLoginRequestForm.cpp
+        account/controller/request/AccountLoginRequestForm.h
+        account/controller/response/AccountLoginResponseForm.cpp
+        account/controller/response/AccountLoginResponseForm.h
+        account/service/request/AccountLoginRequest.cpp
+        account/service/request/AccountLoginRequest.h
+        account/service/response/AccountLoginResponse.cpp
+        account/service/response/AccountLoginResponse.h
 )
 
 target_include_directories(cpp_gtest PRIVATE ${LIBMYSQLCLIENT_INCLUDE_DIRS})

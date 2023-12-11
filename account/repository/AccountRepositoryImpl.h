@@ -18,7 +18,7 @@ private:
 
 public:
     void createAccount() override;
-    void checkAccount() override;
+    bool checkAccount(std::string account_id, std::string password) override;
 
 };
 

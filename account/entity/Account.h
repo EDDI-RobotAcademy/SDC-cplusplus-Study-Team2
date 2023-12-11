@@ -20,6 +20,10 @@ private:
 public:
     Account(const std::string& account_id, const std::string& password);
     void printAccountInfo() const;
+
+
+    std::string getAccount_id();
+    std::string getPassword();
 };
 
 #endif //YOUNGCHANHWANG_ACCOUNT_H

@@ -16,11 +16,11 @@ std::vector<AccountResponse> AccountServiceImpl::regi()
     return std::vector<AccountResponse>();
 }
 
-std::vector<AccountResponse> AccountServiceImpl::login()
+bool AccountServiceImpl::login(AccountLoginRequest *request)
 {
     std::cout << "로그인" << std::endl;
-    accountRepository->checkAccount();
 
-    return std::vector<AccountResponse>();
+
+    return accountRepository->checkAccount(request->getAccountId(), request->getPassword());
 
 }

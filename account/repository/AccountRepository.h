@@ -6,13 +6,14 @@
 #define YOUNGCHANHWANG_ACCOUNTREPOSITORY_H
 
 #include <vector>
+#include <string>
 #include "../entity/Account.h"
 
 class AccountRepository {
 public:
     virtual ~AccountRepository() = default;
     virtual void createAccount() = 0;
-    virtual void checkAccount() = 0;
+    virtual bool checkAccount(std::string account_id, std::string password) = 0;
 
 
 };
