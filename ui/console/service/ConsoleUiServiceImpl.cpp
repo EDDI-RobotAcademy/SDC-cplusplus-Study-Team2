@@ -38,3 +38,12 @@ RequestToEdit *ConsoleUiServiceImpl::makeRequestToEditForm() {
 
     return new RequestToEdit(stoi(uid), title, content);
 }
+
+int ConsoleUiServiceImpl::makeRequestToDeleteForm() {
+    std::string boardUid;
+
+    get_user_keyboard_input_with_message("삭제할 게시물 번호를 입력하세요: ", boardUid);
+    int boardNo = std::stoi(boardUid);
+
+    return boardNo;
+}

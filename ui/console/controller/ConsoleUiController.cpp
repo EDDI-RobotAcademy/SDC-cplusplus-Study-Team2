@@ -15,6 +15,7 @@ ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> conso
 
     consoleBoardCommandTable[BOARD_WRITE] = [this] { uiBoardWrite(); };
     consoleBoardCommandTable[BOARD_EDIT] = [this] { uiBoardEdit(); };
+    consoleBoardCommandTable[BOARD_REMOVE] = [this] { uiBoardRemove(); };
     std::cout << "연결됐다요" << std::endl;
 }
 
@@ -51,4 +52,12 @@ void ConsoleUiController::uiBoardEdit() {
     auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
     auto boardController = std::make_shared<BoardController>(boardService);
     boardController->boardEdit(requestToEdit);
+}
+
+void ConsoleUiController::uiBoardRemove() {
+    int boardNo = consoleUiService->makeRequestToDeleteForm();
+    auto boardRepository = std::make_shared<BoardRepositoryImpl>();
+    auto boardService = std::make_shared<BoardServiceImpl>(boardRepository);
+    auto boardController = std::make_shared<BoardController>(boardService);
+    boardController->boardRemove(boardNo);
 }
