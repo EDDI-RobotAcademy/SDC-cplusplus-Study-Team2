@@ -7,6 +7,7 @@
 
 #include "../../../board/controller/request/RequestToWrite.h"
 #include "../../../board/controller/request/RequestToEdit.h"
+#include "../../../account/controller/request/AccountLoginRequestForm.h"
 
 class ConsoleUiService {
 public:
@@ -14,6 +15,8 @@ public:
 
     virtual void makeUiAccountPrint() = 0;
     virtual void makeUiBoardPrint() = 0;
+
+    virtual AccountLoginRequestForm *makeAccountRequestForm() = 0;
 
     virtual int makeRequestToReadForm() = 0;
     virtual RequestToWrite *makeRequestToWriteForm() = 0;

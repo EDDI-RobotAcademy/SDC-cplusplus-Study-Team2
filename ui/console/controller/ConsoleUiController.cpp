@@ -11,6 +11,9 @@
 #include "../../../board/repository/BoardRepository.h"
 #include "../../../board/repository/BoardRepositoryImpl.h"
 #include "../../../board/entity/manager/BoardManager.h"
+#include "../../../account/controller/AccountController.h"
+#include "../../../account/service/AccountServiceImpl.h"
+#include "../../../account/repository/AccountRepositoryImpl.h"
 
 ConsoleUiController::ConsoleUiController(std::shared_ptr<ConsoleUiService> consoleUiService) : consoleUiService(consoleUiService) {
 
@@ -36,6 +39,15 @@ void ConsoleUiController::uiEngine() {
     int choice = std::stoi(input);
 
     consoleBoardCommandTable[choice]();
+}
+
+void ConsoleUiController::uiAccountLogin() {
+    AccountLoginRequestForm *accountLoginRequestForm = consoleUiService->makeAccountRequestForm();
+
+    auto accountRepository = std::make_shared<AccountRepositoryImpl>();
+    auto accountService = std::make_shared<AccountServiceImpl>(accountRepository);
+    auto accountController = std::make_shared<AccountController>(accountService);
+    accountController->accountLogin(accountLoginRequestForm);
 }
 
 void ConsoleUiController::uiBoardRead() {
