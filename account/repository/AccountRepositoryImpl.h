@@ -17,7 +17,7 @@ private:
     std::shared_ptr<AccountRequestLogin> accountRequestLogin;
 
 public:
-    void createAccount() override;
+    bool createAccount(Account *account) override;
     bool checkAccount(std::string account_id, std::string password) override;
 
 };

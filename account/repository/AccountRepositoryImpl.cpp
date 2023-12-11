@@ -8,10 +8,10 @@
 #include <iostream>
 
 
-void AccountRepositoryImpl::createAccount()
+bool AccountRepositoryImpl::createAccount(Account *account)
 {
-    std::string id = "새로운아이디";
-    std::string pass = "어카운트패스워드";
+    std::string id = account->getAccount_id();
+    std::string pass = account->getPassword();
 
 
     std::cout << "AccountRepository: 회원가입" << std::endl;
@@ -33,11 +33,12 @@ void AccountRepositoryImpl::createAccount()
     if(check_id == 1)
     {
         db.insertAccountData(id, pass);
-        std::cout << "회원가입 성공" << std::endl;
+        return true;
     }
-    else if(check_id == 0) { std::cout << "회원가입 실패" << std::endl; }
+    else if(check_id == 0) { return false; }
 
 }
+
 
 bool AccountRepositoryImpl::checkAccount(std::string account_id, std::string password)
 {

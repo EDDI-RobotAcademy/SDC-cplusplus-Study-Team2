@@ -6,14 +6,14 @@
 #define YOUNGCHANHWANG_ACCOUNTSERVICE_H
 
 #include <vector>
-#include "response/AccountResponse.h"
+#include "request/AccountRegisterRequest.h"
 #include "request/AccountLoginRequest.h"
 
 
 class AccountService {
 public:
     virtual ~AccountService() = default;
-    virtual std::vector<AccountResponse> regi() = 0;
+    virtual bool regi(AccountRegisterRequest *request) = 0;
     virtual bool login(AccountLoginRequest *request) = 0;
 
 };
