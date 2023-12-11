@@ -34,6 +34,8 @@ public:
     bool boardEdit(RequestToEdit*);
     ResponseFoundPostForEdit findPostToEdit(int);
     bool boardRemove(int);
+
+    void updateList();
 };
 
 

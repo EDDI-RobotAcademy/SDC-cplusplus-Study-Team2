@@ -12,10 +12,10 @@ BoardManager::BoardManager(std::shared_ptr<BoardController> _boardController) : 
 // 추후 UI랑 위치를 바꾸는게 좋아보임
 void BoardManager::startBoard() {
 
-    std::cout << "게시판 시작!" << std::endl;
+   // std::cout << "게시판 시작!" << std::endl;
 
 
-    boardController->boardList();
+    boardController->updateList();
 
     if(boardList.size()!=0)
         nextUid = boardList[boardList.size()-1].getBoardUID()+1;

@@ -26,6 +26,7 @@ public:
     virtual ResponseFoundPostForEdit findPostToEdit(int) = 0;
     virtual void edit(BoardRequestFormEdit) = 0;
     virtual void remove(int) = 0;
+    virtual void update() = 0;
 };
 
 #endif //CLASS_TEST_BOARDSERVICE_H

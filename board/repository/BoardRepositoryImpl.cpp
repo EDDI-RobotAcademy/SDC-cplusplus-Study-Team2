@@ -52,7 +52,7 @@ std::vector<Board> fetchResults(MYSQL* conn) {
 
 std::vector<Board> BoardRepositoryImpl::findAll()
 {
-    std::cout << "BoardRepository: 리스트 전체 출력!" << std::endl;
+   // std::cout << "BoardRepository: 리스트 전체 출력!" << std::endl;
 
     // mysql 접속
     const char* DB_HOST = "localhost";
@@ -68,9 +68,7 @@ std::vector<Board> BoardRepositoryImpl::findAll()
 
     std::vector<Board> boardList = fetchResults(db.getConn());
 
-    for (const auto& board : boardList) {
-        board.printBoardInfo();
-    }
+
     
     return boardList;
 }
@@ -83,14 +81,14 @@ Board BoardRepositoryImpl::findPost(int uid) {
         }
     }
 
-    std::cout << "찾을 수 없음!" << std::endl;
+    std::cout << "존재하지 않는 게시물입니다!" << std::endl;
     Board board(uid,"hi", "", "hi");
     return board;
 }
 
 void BoardRepositoryImpl::writePost(Board _request) {
 
-    std::cout << "BoardRepository: 게시물 쓰기!" << std::endl;
+   // std::cout << "BoardRepository: 게시물 쓰기!" << std::endl;
 
     // mysql 접속기
     const char* DB_HOST = "localhost";
@@ -112,7 +110,7 @@ void BoardRepositoryImpl::writePost(Board _request) {
 }
 
 void BoardRepositoryImpl::editPost(BoardRequestFormEdit _request) {
-    std::cout << "BoardRepository: 게시물 수정!" << std::endl;
+    //std::cout << "BoardRepository: 게시물 수정!" << std::endl;
 
     // mysql 접속기
     const char* DB_HOST = "localhost";
@@ -134,7 +132,7 @@ void BoardRepositoryImpl::editPost(BoardRequestFormEdit _request) {
 }
 
 void BoardRepositoryImpl::removePost(int _boardUid) {
-    std::cout << "BoardRepository: 게시물 수정!" << std::endl;
+    //std::cout << "BoardRepository: 게시물 수정!" << std::endl;
 
     // mysql 접속기
     const char* DB_HOST = "localhost";
