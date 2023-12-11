@@ -23,15 +23,15 @@ std::vector<ResponseList> BoardServiceImpl::list()
     return response;
 }
 
-ResponseRead BoardServiceImpl::read(int board_id) {
+ResponseRead *BoardServiceImpl::read(int board_id) {
     std::cout << "BoardService: 게시물 읽기!" << std::endl;
 
     Board boardToRead = boardRepository->findPost(board_id);
     //BoardAdapter *adapter = new BoardAdapter();
 
-    std::cout << "제목: " << boardToRead.getTitle() << "\n작성자: " << boardToRead.getWriter() << /*<< adapter->requestAccountNameToAccountAdapter(boardToRead.getWriter()) <<*/
-    "\n내용: " << boardToRead.getContent() << std::endl;
-    ResponseRead response(boardToRead.getTitle(), boardToRead.getWriter(), boardToRead.getContent());
+//    std::cout << "제목: " << boardToRead.getTitle() << "\n작성자: " << boardToRead.getWriter() << /*<< adapter->requestAccountNameToAccountAdapter(boardToRead.getWriter()) <<*/
+//    "\n내용: " << boardToRead.getContent() << std::endl;
+    ResponseRead *response = new ResponseRead(boardToRead.getTitle(), boardToRead.getWriter(), boardToRead.getContent());
     return response;
 }
 

@@ -27,6 +27,7 @@ public:
 //    void uiAccountRegister();
 //    void uiAccountExit();
 
+    void uiBoardRead();
     void uiBoardWrite();
     void uiBoardEdit();
     void uiBoardRemove();

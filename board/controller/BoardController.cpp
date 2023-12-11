@@ -20,7 +20,7 @@ std::vector<ResponseList> BoardController::boardList()
     return boardService->list();
 }
 
-ResponseRead BoardController::boardRead(int _boardUid) {
+ResponseRead *BoardController::boardRead(int _boardUid) {
 
     std::cout << "BoardController: 게시물 출력!" << std::endl;
     return boardService->read(_boardUid);
