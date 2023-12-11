@@ -35,6 +35,7 @@ public:
     void uiBoardWrite();
     void uiBoardEdit();
     void uiBoardRemove();
+
     void uiExit();
 
     void uiEngine();
@@ -42,8 +43,8 @@ public:
     using CommandFunction = void (*)(ConsoleUiController*, void*);
     std::vector<CommandFunction> commandTable;
 
-
 };
+
 extern bool isLogin;
 extern bool isQuit;
 

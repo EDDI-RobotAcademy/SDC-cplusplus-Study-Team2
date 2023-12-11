@@ -12,11 +12,6 @@ bool AccountServiceImpl::regi(AccountRegisterRequest *request)
     std::cout << "회원가입" << std::endl;
     bool isRegisterSuccess = accountRepository->createAccount(request->toAccount());
 
-    if(isRegisterSuccess == false) { std::cout << "회원가입 실패" << std::endl; }
-    if(isRegisterSuccess == true) { std::cout << "회원가입 성공" << std::endl; }
-
-
-
     return isRegisterSuccess;
 
 }

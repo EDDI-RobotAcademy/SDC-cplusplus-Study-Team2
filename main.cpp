@@ -46,7 +46,7 @@ int main() {
     auto consoleUiService = std::make_shared<ConsoleUiServiceImpl>();
     auto consoleUiController = std::make_shared<ConsoleUiController>(consoleUiService);
     consoleUiController->uiEngine();
-    consoleUiController->uiAccountLogin();
+
   //  consoleUiController->uiBoardWrite();
    // consoleUiController->uiBoardEdit();
 /*    boardController->boardWrite(request);

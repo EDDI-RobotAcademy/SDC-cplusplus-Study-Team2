@@ -10,9 +10,9 @@ ConsoleUiServiceImpl::ConsoleUiServiceImpl() {}
 
 void ConsoleUiServiceImpl::makeUiAccountPrint() {
     std::cout << "ConsoleUiService: AccountCommandUi" << std::endl;
-    std::cout << "1. Login" << std::endl;
-    std::cout << "2. Register" << std::endl;
-    std::cout << "3. Exit" << std::endl;
+    std::cout << "0. Login" << std::endl;
+    std::cout << "1. Register" << std::endl;
+    std::cout << "2. Exit" << std::endl;
 //    consoleUiRepository->getSession();
 }
 
@@ -20,13 +20,22 @@ void ConsoleUiServiceImpl::makeUiBoardPrint() {
     std::cout << "ConsoleUiService: BoardCommandUi" << std::endl;
 }
 
-AccountLoginRequestForm *ConsoleUiServiceImpl::makeAccountRequestForm() {
+AccountLoginRequestForm *ConsoleUiServiceImpl::makeAccountLoginRequestForm() {
     std::string id, pw;
 
     get_user_keyboard_input_with_message("사용자 아이디를 입력하세요: ", id);
     get_user_keyboard_input_with_message("사용자 비밀번호를 입력하세요: ", pw);
 
     return new AccountLoginRequestForm(id, pw);
+}
+
+AccountRegisterRequestForm *ConsoleUiServiceImpl::makeAccountRegisterRequestForm() {
+    std::string id, pw;
+
+    get_user_keyboard_input_with_message("신규 사용자 아이디를 입력하세요: ", id);
+    get_user_keyboard_input_with_message("신규 사용자 비밀번호를 입력하세요: ", pw);
+
+    return new AccountRegisterRequestForm(id, pw);
 }
 
 int ConsoleUiServiceImpl::makeRequestToReadForm() {
