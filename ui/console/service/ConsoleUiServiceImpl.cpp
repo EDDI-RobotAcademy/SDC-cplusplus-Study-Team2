@@ -18,6 +18,15 @@ void ConsoleUiServiceImpl::makeUiPrint() {
 //    consoleUiRepository->getSession();
 }
 
+int ConsoleUiServiceImpl::makeRequestToReadForm() {
+    std::string boardUid;
+
+    get_user_keyboard_input_with_message("조회할 게시물 번호를 입력하세요: ", boardUid);
+    int boardNo = std::stoi(boardUid);
+
+    return boardNo;
+}
+
 RequestToWrite *ConsoleUiServiceImpl::makeRequestToWriteForm() {
     std::string title, writer, content;
 

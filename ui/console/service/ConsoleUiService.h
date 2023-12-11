@@ -13,6 +13,7 @@ public:
     virtual ~ConsoleUiService() = default;
     virtual void makeUiPrint() = 0;
 
+    virtual int makeRequestToReadForm() = 0;
     virtual RequestToWrite *makeRequestToWriteForm() = 0;
     virtual RequestToEdit *makeRequestToEditForm() = 0;
     virtual int makeRequestToDeleteForm() = 0;

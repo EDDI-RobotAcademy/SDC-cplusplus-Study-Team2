@@ -32,9 +32,6 @@ int main() {
     auto boardController = std::make_shared<BoardController>(boardService);
     boardManager = BoardManager(boardController);
 
- /*   boardManager.startBoard();
-    boardController->boardRead(boardManager.getBoardList()[0].getBoardUID());*/
-
 
 //    const char* DB_HOST = "localhost";
 //    const char* DB_USER = "eddi";
